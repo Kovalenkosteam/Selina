@@ -1,0 +1,95 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items:center;
+	max-height: 50px;
+	box-sizing:border-box;
+	flex-wrap: nowrap;
+	background-color: rgb(166, 236, 190);
+	
+}
+.header_left-block {
+	display: flex;
+	align-items:center;
+	box-sizing:border-box;
+	flex-wrap: nowrap;
+}
+.header_logo {
+	font-size: xx-large;
+	font-family: 'Roboto Slab';
+	text-shadow: 1px 5px 10px rgb(84, 255, 4);
+	animation: blink 1s infinite;
+	font-weight: 900;
+}
+
+@keyframes blink {
+0%{
+opacity: 1;
+}
+50%{
+opacity: 0.65;
+}
+100%{
+opacity: 1;
+}
+}
+.header_links {
+	box-sizing:border-box;
+	
+}
+.header_link {
+	text-decoration: none;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-size:x-large;
+	
+}
+.header_right-block {
+}
+.contact {
+}
+
+
+
+
+.main {
+	margin-top: 10px;
+}
+.about {
+	display: flex;
+	flex-direction: column;
+	
+}
+.title{
+text-align: center;
+font-size:x-large;
+margin-bottom: 30px;
+
+}
+.discription{
+display: flex;
+flex-direction: row;
+}
+.discription_about{
+	padding: 30px;
+}
+.discription_image{
+border-radius: 30px;
+}
+
+
+
+
+
+.rooms {
+}
+.attractions {
+}
+
+
+
+
+footer{
+	height: 50px;
+	background-color:aqua
+}
