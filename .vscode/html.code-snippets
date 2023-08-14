@@ -1,0 +1,28 @@
+{
+	"HTML ALL": {
+		"scope": "html",
+		"prefix": "!",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"en\">",
+			"\t<head>",
+			"\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+			"\t\t<title>Назови меня тихо по имени</title>",
+			"\t\t<link href=\"https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap\" rel=\"stylesheet\">",
+			"\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">",
+			"\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">",
+			"\t\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
+			"\t\t<meta name=\"description\" content=\"description\">",
+			"\t\t<meta name=\"keywords\" content=\"word_for_search\">",
+			"\t\t<meta name=\"author\" content=\"Eugene Kovalenko\">",
+			"\t</head>",
+			"\t<body>",
+			"\t\t",
+			"\t\t",
+			"\t<script type=\"text/javascript\" src=\"script.js\"></script>",
+			"\t</body>",
+			"</html>",
+		],
+		"description": "Log output to console"
+	}
+}
