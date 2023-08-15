@@ -45,6 +45,7 @@
 	cursor: pointer;
 	text-align: center;
 }
+
 .headerLinkActive {
 	color: #000000;
 	font-size: 27px;
@@ -64,12 +65,15 @@
 	display: flex;
 	flex-direction: column;
 }
-.hide{
+
+.hide {
 	display: none;
 }
-.show{
+
+.show {
 	display: flex;
 }
+
 .fade {
 	animation-name: fade;
 	animation-duration: 1.5s;
@@ -84,6 +88,7 @@
 		opacity: 1;
 	}
 }
+
 .title {
 	display: flex;
 	justify-content: space-around;
@@ -91,6 +96,7 @@
 	font-size: x-large;
 	margin-bottom: 30px;
 }
+
 .roomLinks {
 	display: flex;
 	justify-content: space-around;
@@ -121,10 +127,14 @@
 	max-width: auto;
 	height: 400px;
 }
-.discriptionImageAbout{
-	max-width: auto;
+
+.discriptionImageAbout {
+	position: relative;
+	width: 600px;
 	height: 400px;
 }
+
+
 
 .roomLink {
 	margin-left: 50px;
@@ -134,8 +144,9 @@
 	cursor: pointer;
 	text-align: center;
 }
-.roomMainContent{
-	
+
+.roomMainContent {
+
 	flex-direction: column;
 }
 
@@ -149,14 +160,14 @@
 	display: flex;
 	flex-direction: row;
 	height: auto;
-	
+
 }
 
 .lux {
 	display: flex;
 	flex-direction: row;
 	height: auto;
-	
+
 }
 
 footer {
