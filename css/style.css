@@ -55,7 +55,26 @@
 
 .headerRightBlock {}
 
-.contact {}
+.contact {
+	width: 220px;
+	height: 65px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0);
+	font-size: 18px;
+	font-weight: 700;
+	border: 1px solid rgba(0, 0, 0, 0);
+	border-radius: 40px;
+	cursor: pointer;
+	transition: .3s all;
+	outline: 0;
+
+}
+
+.contact:hover {
+	box-shadow: 0 4px 30px rgba(0, 0, 0, .3)
+}
 
 .main {
 	margin-top: 10px;
@@ -169,6 +188,51 @@
 	height: auto;
 
 }
+
+.attractionContainer {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+}
+
+.attractionImage {}
+
+.attractionImage img {
+	height: 300px;
+}
+
+.attractionAbout {
+	display: flex;
+	padding-left: 30px;
+	align-items: center;
+}
+
+
+.attractionTabs {
+	display: flex;
+	flex-direction: row;
+}
+
+.prev,
+.next {
+	text-align: center;
+	font-size: 100px;
+	position: absolute;
+	top: 35%;
+	transform: translateY(-50%);
+	color:white;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	height: 300px;
+}
+.prev{
+	
+}
+.next{
+	left: 450px;
+}
+
 
 footer {
 	height: 70px;
