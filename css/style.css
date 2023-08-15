@@ -10,7 +10,7 @@
 	background-color: rgb(166, 236, 190);
 }
 
-.header_logo {
+.headerLogo {
 	font-size: xx-large;
 	font-family: 'Roboto Slab';
 	text-shadow: 1px 5px 10px rgb(84, 255, 4);
@@ -32,36 +32,62 @@
 	}
 }
 
-.header_links {
-	box-sizing: border-box;
+.headerLinks {
+	display: flex;
+	justify-content: space-around;
 }
 
-.header_link {
+.headerLink {
+	margin-left: 50px;
+	margin-right: 50px;
 	text-decoration: none;
-	padding-left: 25px;
-	padding-right: 25px;
 	font-size: x-large;
+	cursor: pointer;
+	text-align: center;
+}
+.headerLinkActive {
+	color: #000000;
+	font-size: 27px;
+	font-weight: 700;
+	text-shadow: 10px 5px 5px red;
 }
 
-.header_right-block {}
+.headerRightBlock {}
 
 .contact {}
-
-
-
-
 
 .main {
 	margin-top: 10px;
 }
 
-.about {
+.mainContent {
 	display: flex;
 	flex-direction: column;
-	/* display: none; */
+}
+.hide{
+	display: none;
+}
+.show{
+	display: flex;
+}
+.fade {
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@keyframes fade {
+	from {
+		opacity: 0.3;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 .title {
+	display: flex;
+	justify-content: space-around;
 	text-align: center;
 	font-size: x-large;
 	margin-bottom: 30px;
@@ -73,35 +99,26 @@
 	height: auto;
 }
 
-.discription_about {
+.discriptionAbout {
+
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 30px;
 }
 
-.discription_about h2 {
+.discriptionAbout h2 {
 	text-align: end;
 }
 
-.discription_image {}
+.discriptionImage {}
 
-
-
-
-
-.rooms {
-	display: none;
-	/* display: flex; */
-	flex-direction: column;
+.roomLink {
+	text-decoration: none;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-size: x-large;
 }
-
-.rooms .title {
-	display: flex;
-	justify-content: space-evenly;
-}
-
-.room_link {}
 
 .econom {
 	display: flex;
@@ -114,7 +131,6 @@
 	flex-direction: row;
 	height: auto;
 	display: none;
-
 }
 
 .lux {
@@ -123,30 +139,6 @@
 	height: auto;
 	display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-.attractions {
-	display: none;
-}
-
-
-
-
-
-
-
-
 
 footer {
 	height: 70px;
