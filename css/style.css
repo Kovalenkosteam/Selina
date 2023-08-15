@@ -8,14 +8,6 @@
 	box-sizing: border-box;
 	flex-wrap: nowrap;
 	background-color: rgb(166, 236, 190);
-
-}
-
-.header_left-block {
-	display: flex;
-	align-items: center;
-	box-sizing: border-box;
-	flex-wrap: nowrap;
 }
 
 .header_logo {
@@ -42,7 +34,6 @@
 
 .header_links {
 	box-sizing: border-box;
-
 }
 
 .header_link {
@@ -50,7 +41,6 @@
 	padding-left: 25px;
 	padding-right: 25px;
 	font-size: x-large;
-
 }
 
 .header_right-block {}
@@ -60,22 +50,21 @@
 
 
 
+
 .main {
 	margin-top: 10px;
 }
 
 .about {
-
-	/* display: flex; */
+	display: flex;
 	flex-direction: column;
-	display: none;
+	/* display: none; */
 }
 
 .title {
 	text-align: center;
 	font-size: x-large;
 	margin-bottom: 30px;
-
 }
 
 .discription {
@@ -94,25 +83,6 @@
 .discription_about h2 {
 	text-align: end;
 }
-.econom{
-	display: flex;
-	flex-direction: row;
-	height: auto;
-}
-.house{
-	display: flex;
-	flex-direction: row;
-	height: auto;
-display:none;
-
-}
-.lux{
-	display: flex;
-	flex-direction: row;
-	height: auto;
-	display: none;
-}
-
 
 .discription_image {}
 
@@ -121,8 +91,8 @@ display:none;
 
 
 .rooms {
-	/* display: none; */
-	display: flex;
+	display: none;
+	/* display: flex; */
 	flex-direction: column;
 }
 
@@ -131,9 +101,49 @@ display:none;
 	justify-content: space-evenly;
 }
 
+.room_link {}
+
+.econom {
+	display: flex;
+	flex-direction: row;
+	height: auto;
+}
+
+.house {
+	display: flex;
+	flex-direction: row;
+	height: auto;
+	display: none;
+
+}
+
+.lux {
+	display: flex;
+	flex-direction: row;
+	height: auto;
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .attractions {
 	display: none;
 }
+
+
+
+
+
 
 
 
