@@ -191,24 +191,30 @@
 }
 
 .attractionContainer {
-display: flex;
-flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
 }
+
 .attractionTabs {
-
+	display: flex;
+	flex-direction: row;
+	margin-left: 100px;
+	margin-top: 50px;
 }
-.attractionImage {
 
+.attractionImage {
+	display: block;
+	height: 350px;
 }
 
 .attractionImage img {
-
+	width: 500px;
+	position: absolute;
 }
 
 .attractionAbout {
-
-
+	margin-left: 45%;
 }
 
 
@@ -221,17 +227,17 @@ flex-direction: column;
 	position: absolute;
 	top: 40%;
 	transform: translateY(-50%);
-	color:white;
+	color: white;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
 	height: 300px;
 	z-index: 1;
 }
-.prev{
-	
-}
-.next{
+
+.prev {}
+
+.next {
 	left: 410px;
 }
 

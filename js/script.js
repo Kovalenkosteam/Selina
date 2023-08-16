@@ -45,12 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	// const hideImage = document.querySelectorAll('.attractionImage img');
+	const hideImage = document.querySelectorAll('.attractionImage img');
 	// for (let i = 1; i < hideImage.length; i++) {
 	// 	hideImage[i].style.display = 'none';
 	// }
+	console.log(hideImage[0]);
+	console.log(hideImage[1]);
+	console.log(hideImage[2]);
+	hideImage[2].style.zIndex= -1;
+	hideImage[1].style.zIndex= -1;
+	hideImage[2].style.display='none';
+	hideImage[1].style.display='none';
 
-	
 
 
 
