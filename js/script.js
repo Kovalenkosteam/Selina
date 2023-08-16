@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	const hideImage = document.querySelectorAll('.attractionImage img');
-	for (let i = 1; i < hideImage.length; i++) {
-		hideImage[i].style.display = 'none';
-	}
+	// const hideImage = document.querySelectorAll('.attractionImage img');
+	// for (let i = 1; i < hideImage.length; i++) {
+	// 	hideImage[i].style.display = 'none';
+	// }
 
 	
 

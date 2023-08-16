@@ -8,6 +8,7 @@
 	box-sizing: border-box;
 	flex-wrap: nowrap;
 	background-color: rgb(166, 236, 190);
+	z-index: 1;
 }
 
 .headerLogo {
@@ -190,47 +191,48 @@
 }
 
 .attractionContainer {
-	display: flex;
-	flex-direction: column;
-	margin: 20px;
+display: flex;
+flex-direction: column;
+
+}
+.attractionTabs {
+
+}
+.attractionImage {
+
 }
 
-.attractionImage {}
-
 .attractionImage img {
-	height: 300px;
+
 }
 
 .attractionAbout {
-	display: flex;
-	padding-left: 30px;
-	align-items: center;
+
+
 }
 
 
-.attractionTabs {
-	display: flex;
-	flex-direction: row;
-}
+
 
 .prev,
 .next {
 	text-align: center;
 	font-size: 100px;
 	position: absolute;
-	top: 35%;
+	top: 40%;
 	transform: translateY(-50%);
 	color:white;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
 	height: 300px;
+	z-index: 1;
 }
 .prev{
 	
 }
 .next{
-	left: 450px;
+	left: 410px;
 }
 
 
