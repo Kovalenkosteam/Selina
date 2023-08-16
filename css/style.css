@@ -191,30 +191,35 @@
 }
 
 .attractionContainer {
-	display: flex;
-	flex-direction: column;
 
 }
 
 .attractionTabs {
-	display: flex;
-	flex-direction: row;
-	margin-left: 100px;
-	margin-top: 50px;
+margin-top: 50px;
+margin-bottom: 50px;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+width: 100%;
+height: 350px;
+
+
+
 }
 
 .attractionImage {
-	display: block;
-	height: 350px;
+	width: 500px;
+	
 }
 
 .attractionImage img {
 	width: 500px;
 	position: absolute;
+	
 }
 
 .attractionAbout {
-	margin-left: 45%;
+	max-width: 50%;
 }
 
 
