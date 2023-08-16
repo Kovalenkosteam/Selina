@@ -44,13 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	viewElements(roomLink, roomLinksParent, roomMainContent);
 
 
-const allTabs=document.querySelectorAll('.attractionTabs');
-allTabs.forEach((item)=>{
-	const allImageInTabs=item.querySelectorAll('img');
-	for(let i=1;i<allImageInTabs.length;i++){
-		allImageInTabs[i].style.display='none';
-	}
-});
+	const allTabs = document.querySelectorAll('.attractionTabs');
+	allTabs.forEach((item) => {
+		const allImageInTabs = item.querySelectorAll('img');
+		for (let i = 1; i < allImageInTabs.length; i++) {
+			allImageInTabs[i].style.display = 'none';
+			allImageInTabs[0].addEventListener('click',()=>{
+				allImageInTabs[0].style.borderRadius='20px';
+			});
+		}
+		
+	});
 
 
 
@@ -61,17 +65,10 @@ allTabs.forEach((item)=>{
 
 
 
-	// const hideImage = document.querySelectorAll('.attractionImage img');
-	// for (let i = 1; i < hideImage.length; i++) {
-	// 	hideImage[i].style.display = 'none';
-	// }
-	// console.log(hideImage[0]);
-	// console.log(hideImage[1]);
-	// console.log(hideImage[2]);
-	// hideImage[2].style.zIndex= -1;
-	// hideImage[1].style.zIndex= -1;
-	// hideImage[3].style.display='none';
-	// hideImage[1].style.display='none';
+
+
+
+
 
 
 

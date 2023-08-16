@@ -1,3 +1,5 @@
+
+
 .header {
 	display: flex;
 	position: sticky;
@@ -8,7 +10,7 @@
 	box-sizing: border-box;
 	flex-wrap: nowrap;
 	background-color: rgb(166, 236, 190);
-	z-index: 1;
+	z-index: 999;
 }
 
 .headerLogo {
@@ -215,35 +217,12 @@ height: 350px;
 .attractionImage img {
 	width: 500px;
 	position: absolute;
+	max-height: 350px;
 	
 }
 
 .attractionAbout {
 	max-width: 50%;
-}
-
-
-
-
-.prev,
-.next {
-	text-align: center;
-	font-size: 100px;
-	position: absolute;
-	top: 40%;
-	transform: translateY(-50%);
-	color: white;
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
-	height: 300px;
-	z-index: 1;
-}
-
-.prev {}
-
-.next {
-	left: 410px;
 }
 
 
