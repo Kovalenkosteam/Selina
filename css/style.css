@@ -1,5 +1,3 @@
-
-
 .header {
 	display: flex;
 	position: sticky;
@@ -10,7 +8,7 @@
 	box-sizing: border-box;
 	flex-wrap: nowrap;
 	background-color: rgb(166, 236, 190);
-	z-index: 999;
+	z-index: 0;
 }
 
 .headerLogo {
@@ -148,6 +146,7 @@
 .discriptionImage {
 	max-width: auto;
 	height: 400px;
+
 }
 
 .discriptionImageAbout {
@@ -192,37 +191,64 @@
 
 }
 
-.attractionContainer {
-
-}
+.attractionContainer {}
 
 .attractionTabs {
-margin-top: 50px;
-margin-bottom: 50px;
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-width: 100%;
-
-
-
-
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
 }
 
 .attractionImages {
 	width: 500px;
+
+}
+
+.attractionImage {
+	width: 500px;
+	max-height: 350px;
+}
+
+
+
+
+
+
+
+.attractionImages:hover::after {
+	box-shadow: inset 10px 10px rgb(255, 0, 0);
+	content: '35453453543534535';
+	position: relative;
+	bottom: 50%;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: blue;
 	
 }
 
-.attractionImage{
-	width: 500px;
-	/* position: absolute; */
-	max-height: 350px;
-	
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .attractionAbout {
 	max-width: 50%;
+
 }
 
 

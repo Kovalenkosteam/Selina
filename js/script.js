@@ -51,6 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			if(i>0){
 				item.style.display='none';
 			}
+			// if(i==0){
+			// console.log(item);	
+			// }
+			
 		});
 
 	});
