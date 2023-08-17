@@ -203,20 +203,20 @@ display: flex;
 flex-direction: row;
 justify-content: space-around;
 width: 100%;
-height: 350px;
+
 
 
 
 }
 
-.attractionImage {
+.attractionImages {
 	width: 500px;
 	
 }
 
-.attractionImage img {
+.attractionImage{
 	width: 500px;
-	position: absolute;
+	/* position: absolute; */
 	max-height: 350px;
 	
 }

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 			link.forEach(item => { item.classList.remove('headerLinkActive') });
 		};
-		function showMainContent(i = 0) {
+		function showMainContent(i = 2) {
 			elementContent[i].classList.add('show', 'fade');
 			elementContent[i].classList.remove('hide');
 			link[i].classList.add('headerLinkActive');
@@ -43,18 +43,25 @@ document.addEventListener('DOMContentLoaded', () => {
 	viewElements(headerLink, headerLinkParent, mainContent);
 	viewElements(roomLink, roomLinksParent, roomMainContent);
 
+	const attractionImages = document.querySelectorAll('.attractionImages');
 
-	const allTabs = document.querySelectorAll('.attractionTabs');
-	allTabs.forEach((item) => {
-		const allImageInTabs = item.querySelectorAll('img');
-		for (let i = 1; i < allImageInTabs.length; i++) {
-			allImageInTabs[i].style.display = 'none';
-			allImageInTabs[0].addEventListener('click',()=>{
-				allImageInTabs[0].style.borderRadius='20px';
-			});
-		}
-		
+	attractionImages.forEach((element, i) => {
+		const attractionImage = element.querySelectorAll('.attractionImages img')
+		attractionImage.forEach((item,i)=>{
+			if(i>0){
+				item.style.display='none';
+			}
+		});
+
 	});
+
+
+
+
+
+
+
+
 
 
 
