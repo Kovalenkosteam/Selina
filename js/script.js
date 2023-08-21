@@ -47,14 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	attractionImages.forEach((element, i) => {
 		const attractionImage = element.querySelectorAll('.attractionImages img')
-		attractionImage.forEach((item,i)=>{
-			if(i>0){
-				item.style.display='none';
+		const prevArrow = element.querySelector('.prev');
+		const nextArrow = element.querySelector('.next');
+
+		element.addEventListener('mouseenter', () => {
+			prevArrow.style.display = 'block';
+			nextArrow.style.display = 'block';
+		});
+		element.addEventListener('mouseleave', () => {
+			prevArrow.style.display = 'none';
+			nextArrow.style.display = 'none';
+		});
+
+
+		attractionImage.forEach((item, i) => {
+			if (i > 0) {
+				item.style.display = 'none';
 			}
 			// if(i==0){
 			// console.log(item);	
 			// }
-			
+
 		});
 
 	});

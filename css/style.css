@@ -109,6 +109,11 @@
 	}
 }
 
+
+
+
+
+
 .title {
 	display: flex;
 	justify-content: space-around;
@@ -214,66 +219,81 @@
 }
 
 
-.prev, .next{
-    top:35%;
+.prev,
+.next {
+	top: 35%;
 	position: absolute;
+	display: none;
+	animation-name: fade;
+	animation-duration: 0.5s;
 }
-.next{
+
+.next {
 	right: 0%;
 }
-.prev> svg,
-.next> svg {
-    width: 100px;
-    height: auto;
-    cursor: pointer;
-    overflow: visible;
+
+.prev>svg,
+.next>svg {
+	width: 100px;
+	height: auto;
+	cursor: pointer;
+	overflow: visible;
 }
-.prev > svg polygon,
-.next > svg polygon,
-.prev > svg path,
-.next > svg path {
-    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-    fill: #337AB7;
+
+.prev>svg polygon,
+.next>svg polygon,
+.prev>svg path,
+.next>svg path {
+	transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+	fill: #337AB7;
 }
-.prev > svg:hover polygon,
-.next > svg:hover polygon,
-.prev > svg:hover path,
-.next > svg:hover path {
-    transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
-    fill: #000;
+
+.prev>svg:hover polygon,
+.next>svg:hover polygon,
+.prev>svg:hover path,
+.next>svg:hover path {
+	transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+	fill: #000;
 }
-.prev > svg:hover .arrow-6-pl,
-.next > svg:hover .arrow-6-pl {
-    animation: arrow-6-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+
+.prev>svg:hover .arrow-6-pl,
+.next>svg:hover .arrow-6-pl {
+	animation: arrow-6-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
 }
-.prev > svg:hover .arrow-6-pl-fixed,
-.next > svg:hover .arrow-6-pl-fixed {
-    animation: arrow-6-fixed-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+
+.prev>svg:hover .arrow-6-pl-fixed,
+.next>svg:hover .arrow-6-pl-fixed {
+	animation: arrow-6-fixed-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
 }
- 
+
 @keyframes arrow-6-anim {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    5% {
-        transform: translateX(-0.1rem);
-    }
-    100% {
-        transform: translateX(1rem);
-        opacity: 0;
-    }
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	5% {
+		transform: translateX(-0.1rem);
+	}
+
+	100% {
+		transform: translateX(1rem);
+		opacity: 0;
+	}
 }
+
 @keyframes arrow-6-fixed-anim {
-    5% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 0.4;
-    }
-    100% {
-        opacity: 1;
-    }
+	5% {
+		opacity: 0;
+	}
+
+	20% {
+		opacity: 0.4;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 
 
