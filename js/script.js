@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			nextArrow.style.display = 'none';
 		});
 
+		prevArrow.addEventListener('click',()=>{
+			console.log('hello');
+		});
 
 		attractionImage.forEach((item, i) => {
 			if (i > 0) {

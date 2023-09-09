@@ -57,8 +57,7 @@
 .headerRightBlock {}
 
 .contact {
-	width: 220px;
-	height: 65px;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -74,7 +73,7 @@
 }
 
 .contact:hover {
-	box-shadow: 0 4px 30px rgba(0, 0, 0, .3)
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3)
 }
 
 .main {
@@ -329,4 +328,21 @@ footer {
 	left: 0px;
 	bottom: 0px;
 	width: 100%;
+}
+.footer{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-content: center;
+}
+.about{
+	display: flex;
+	width: 20%;
+	justify-content: space-around;
+}
+.about a img{
+	border-radius:10px;
+}
+.call a{
+	font-size: 30px;
 }
