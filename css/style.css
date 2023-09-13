@@ -8,7 +8,7 @@
 	box-sizing: border-box;
 	flex-wrap: nowrap;
 	background-color: rgb(166, 236, 190);
-	z-index: 0;
+	z-index: 999;
 }
 
 .headerLogo {
@@ -209,7 +209,9 @@
 .attractionImages {
 	width: 500px;
 	position: relative;
-	max-height: 350px;
+	height: 350px;
+	display: flex;
+	align-items: center;
 }
 
 .attractionImage {
@@ -317,7 +319,8 @@
 
 .attractionAbout {
 	max-width: 50%;
-
+	display: flex;
+	align-items: center
 }
 
 
@@ -329,20 +332,24 @@ footer {
 	bottom: 0px;
 	width: 100%;
 }
-.footer{
+
+.footer {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
 	align-content: center;
 }
-.about{
+
+.about {
 	display: flex;
 	width: 20%;
 	justify-content: space-around;
 }
-.about a img{
-	border-radius:10px;
+
+.about a img {
+	border-radius: 10px;
 }
-.call a{
+
+.call a {
 	font-size: 30px;
 }

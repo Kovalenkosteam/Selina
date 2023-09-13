@@ -46,32 +46,65 @@ document.addEventListener('DOMContentLoaded', () => {
 	const attractionImages = document.querySelectorAll('.attractionImages');
 
 	attractionImages.forEach((element, i) => {
-		const attractionImage = element.querySelectorAll('.attractionImages img')
+		const attractionImage = element.querySelectorAll('.attractionImage')
 		const prevArrow = element.querySelector('.prev');
 		const nextArrow = element.querySelector('.next');
+
+		console.log(attractionImage);
 
 		element.addEventListener('mouseenter', () => {
 			prevArrow.style.display = 'block';
 			nextArrow.style.display = 'block';
 		});
+
 		element.addEventListener('mouseleave', () => {
 			prevArrow.style.display = 'none';
 			nextArrow.style.display = 'none';
 		});
 
-		prevArrow.addEventListener('click',()=>{
-			console.log('hello');
+		prevArrow.addEventListener('click', () => {
+			plusImageIndex(-1);
 		});
 
-		attractionImage.forEach((item, i) => {
-			if (i > 0) {
-				item.style.display = 'none';
+		nextArrow.addEventListener('click', () => {
+			plusImageIndex(1);
+		});
+		let imageIndex = 1;
+		
+		showSlide(1)
+
+
+		function showSlide(n) {
+
+			if (n > attractionImage.length) {
+				imageIndex = 1;
 			}
-			// if(i==0){
-			// console.log(item);	
-			// }
 
-		});
+			if (n < 1) {
+				imageIndex = attractionImage.length;
+			}
+
+			attractionImage.forEach(item => item.style.display = 'none');
+			attractionImage[imageIndex - 1].style.display = 'block';
+		}
+
+		function plusImageIndex(n) {
+			showSlide(imageIndex = imageIndex + n);
+		}
+
+
+
+
+
+		// attractionImage.forEach((item, i) => {
+		// 	if (i > 0) {
+		// 		item.style.display = 'none';
+		// 	}
+		// 	// if(i==0){
+		// 	// console.log(item);	
+		// 	// }
+
+		// });
 
 	});
 
