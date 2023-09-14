@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		};
 
 		//добавление обработчика события на клик по картике из слайдера
-		element.addEventListener("click",(e) => {
+		element.addEventListener("click", (e) => {
 			if (e.target.classList.contains('attractionImage')) {
 				const modal = document.getElementById("modal");
 				var modalImg = document.getElementById("modal-img");
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				var currentPhotoIndex = Array.from(photos).indexOf(e.target);
 
 				//запрещаем скролл при показе модалки 
-				document.body.style.overflow='hidden';
+				document.body.style.overflow = 'hidden';
 				console.log(modal);
 
 				// Устанавливаем изображение в модальное окно
@@ -111,35 +111,35 @@ document.addEventListener('DOMContentLoaded', () => {
 				// Устанавливаем ширину и высоту 
 				modalImg.style.width = "60%";
 				modalImg.style.height = "auto";
-	
+
 				// Показываем модальное окно
 				modal.style.display = "flex";
-	
+
 				// Показываем стрелки и позиционируем их рядом с картинкой
 				modalPrev.style.display = "block";
 				modalNext.style.display = "block";
 				modalPrev.style.left = "10%";
 				modalNext.style.right = "10%";
-	
-	
+
+
 				// Обработчик клика на кнопку закрытия модального окна
 				document.getElementsByClassName("close")[0].addEventListener("click", function () {
 					modal.style.display = "none";
-					document.body.style.overflow='';
+					document.body.style.overflow = '';
 				});
 				window.addEventListener('click', function (event) {
 					if (event.target == modal) {
 						modal.style.display = 'none';
-						document.body.style.overflow='';
+						document.body.style.overflow = '';
 					}
 				});
-	
+
 				// Обработчик клика на кнопку "Предыдущая"
 				modalPrev.addEventListener("click", function () {
 					currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
 					modalImg.src = photos[currentPhotoIndex].src;
 				});
-	
+
 				// Обработчик клика на кнопку "Следующая"
 				modalNext.addEventListener("click", function () {
 					currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
@@ -147,21 +147,21 @@ document.addEventListener('DOMContentLoaded', () => {
 				});
 			}
 		});
-
-
-
-
-
-
-
-
-
 	});
 
 
 
+	function showModalByScroll() {
+		if ((window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) && mainContent[2].classList.contains('show')) {
+			// openModal();
+			alert('hi');
+			window.removeEventListener('scroll', showModalByScroll);
+		}
+	}
+	window.addEventListener('scroll', showModalByScroll);
 
-	
+
+
 
 
 
