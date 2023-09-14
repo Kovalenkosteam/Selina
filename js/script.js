@@ -149,12 +149,41 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
+	//модалка для окна связи
+	const contact=document.querySelector('.contact');
+	contact.addEventListener('click',()=>openModalThanks());
+	const modalThanks=document.querySelector('.modalThanks');
+	function closeModalThanks() {
+		modalThanks.classList.add('hide');
+		modalThanks.classList.remove('showModalThanks');
+		document.body.style.overflow = '';
+	}
+
+
+	function openModalThanks(){
+		
+		modalThanks.classList.add('showModalThanks');
+		modalThanks.classList.remove('hide');
+		document.body.style.overflow = 'hidden';
+	};
+
+	modalThanks.addEventListener('click', (e) => {
+		if (e.target === modalThanks || e.target.getAttribute('data-close') == "") {
+			closeModalThanks();
+		}
+	});
+
+	document.addEventListener('keydown', (e) => {
+		if (e.code === "Escape" && modalThanks.classList.contains('showModalThanks')) {
+			closeModalThanks();
+		}
+	});
 
 
 	function showModalByScroll() {
 		if ((window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) && mainContent[2].classList.contains('show')) {
-			// openModal();
-			alert('hi');
+			openModalThanks();
+			
 			window.removeEventListener('scroll', showModalByScroll);
 		}
 	}
