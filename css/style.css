@@ -123,7 +123,7 @@
 
 .roomLinks {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	text-align: center;
 	font-size: x-large;
 	margin-bottom: 30px;
@@ -217,11 +217,13 @@
 .attractionImage {
 	width: 500px;
 	max-height: 350px;
+	animation-name: fade;
+	animation-duration: 1s;
 }
 
 
-.prev,
-.next {
+.prevArrow,
+.nextArrow {
 	top: 35%;
 	position: absolute;
 	display: none;
@@ -229,41 +231,41 @@
 	animation-duration: 0.5s;
 }
 
-.next {
+.nextArrow {
 	right: 0%;
 }
 
-.prev>svg,
-.next>svg {
+.prevArrow>svg,
+.nextArrow>svg {
 	width: 100px;
 	height: auto;
 	cursor: pointer;
 	overflow: visible;
 }
 
-.prev>svg polygon,
-.next>svg polygon,
-.prev>svg path,
-.next>svg path {
+.prevArrow>svg polygon,
+.nextArrow>svg polygon,
+.prevArrow>svg path,
+.nextArrow>svg path {
 	transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
 	fill: #337AB7;
 }
 
-.prev>svg:hover polygon,
-.next>svg:hover polygon,
-.prev>svg:hover path,
-.next>svg:hover path {
+.prevArrow>svg:hover polygon,
+.nextArrow>svg:hover polygon,
+.prevArrow>svg:hover path,
+.nextArrow>svg:hover path {
 	transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
 	fill: #000;
 }
 
-.prev>svg:hover .arrow-6-pl,
-.next>svg:hover .arrow-6-pl {
+.prevArrow>svg:hover .arrow-6-pl,
+.nextArrow>svg:hover .arrow-6-pl {
 	animation: arrow-6-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
 }
 
-.prev>svg:hover .arrow-6-pl-fixed,
-.next>svg:hover .arrow-6-pl-fixed {
+.prevArrow>svg:hover .arrow-6-pl-fixed,
+.nextArrow>svg:hover .arrow-6-pl-fixed {
 	animation: arrow-6-fixed-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
 }
 
@@ -299,7 +301,52 @@
 
 
 
+#modal {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.7);
+}
 
+#modal-img {
+	max-width: 90%;
+	max-height: 90%;
+}
+
+.close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	font-size: 100px;
+	font-weight: bold;
+	color: #f1f1f1;
+	cursor: pointer;
+}
+
+.prev,
+.next {
+	position: absolute;
+	top: 50%;
+	font-size: 100px;
+	font-weight: bold;
+	color: #f1f1f1;
+	cursor: pointer;
+	user-select: none;
+}
+
+.prev {
+	left: 15px;
+}
+
+.next {
+	right: 15px;
+}
 
 
 
