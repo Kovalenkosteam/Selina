@@ -99,17 +99,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_roomTabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/roomTabs */ "./src/js/modules/roomTabs.js");
 /* harmony import */ var _modules_attraction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/attraction */ "./src/js/modules/attraction.js");
 /* harmony import */ var _modules_modalForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modalForm */ "./src/js/modules/modalForm.js");
-// import fun from "./modules/script";
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+
 
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // fun();
   Object(_modules_mainTabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.headerLinks', '.headerLink', '.mainContent', 'headerLinkActive');
   Object(_modules_roomTabs__WEBPACK_IMPORTED_MODULE_1__["default"])('.roomLinks', '.roomLink', '.roomMainContent', 'headerLinkActive');
-  Object(_modules_attraction__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  // attraction();
   Object(_modules_modalForm__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_4__["default"])('.attractionTabs', '.attractionImages', '.prevArrow', '.nextArrow');
 });
 
 /***/ }),
@@ -318,7 +319,6 @@ const modalForm = () => {
   function showModalByScroll() {
     if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight && mainContent[2].style.display == 'block') {
       openModalThanks();
-      console.log('hi');
       window.removeEventListener('scroll', showModalByScroll);
     }
   }
@@ -370,6 +370,60 @@ const roomTabs = (headerSelecor, tabSelector, contentSelector, activeClass, disp
   });
 };
 /* harmony default export */ __webpack_exports__["default"] = (roomTabs);
+
+/***/ }),
+
+/***/ "./src/js/modules/slider.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/slider.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const sliders = (imageContainer, sliderImage, prevBtn, nextBtn) => {
+  const container = document.querySelectorAll(imageContainer);
+  container.forEach(item => {
+    // Получаем элементы слайдера
+    const slider = item.querySelector(sliderImage);
+    const prevButton = item.querySelector(prevBtn);
+    const nextButton = item.querySelector(nextBtn);
+    const slides = Array.from(slider.querySelectorAll('img'));
+    const slideCount = slides.length;
+    let slideIndex = 0;
+
+    // Функция для показа предыдущего слайда
+    function showPreviousSlide() {
+      slideIndex = (slideIndex - 1 + slideCount) % slideCount;
+      updateSlider();
+    }
+
+    // Функция для показа следующего слайда
+    function showNextSlide() {
+      slideIndex = (slideIndex + 1) % slideCount;
+      updateSlider();
+    }
+    // Устанавливаем обработчики событий для кнопок
+    prevButton.addEventListener('click', showPreviousSlide);
+    nextButton.addEventListener('click', showNextSlide);
+
+    // Функция для обновления отображения слайдера
+    function updateSlider() {
+      slides.forEach((slide, index) => {
+        if (index === slideIndex) {
+          slide.style.display = 'block';
+        } else {
+          slide.style.display = 'none';
+        }
+      });
+    }
+
+    // Инициализация слайдера
+    updateSlider();
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (sliders);
 
 /***/ })
 

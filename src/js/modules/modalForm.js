@@ -39,7 +39,6 @@ const modalForm = () => {
 	function showModalByScroll() {
 		if ((window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) && mainContent[2].style.display=='block') {
 			openModalThanks();
-			console.log('hi');
 			window.removeEventListener('scroll', showModalByScroll);
 		}
 	}
