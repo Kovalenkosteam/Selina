@@ -1,5 +1,5 @@
-'use strict';
-document.addEventListener('DOMContentLoaded', () => {
+const fun = ()=>{
+
 
 	const headerLinkParent = document.querySelector('.headerLinks');
 	const headerLink = document.querySelectorAll('.headerLink');
@@ -282,8 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			closeModalThanks();
 		}, 4000);
 	}
+}
 
-
-
-
-});
+export default fun;
