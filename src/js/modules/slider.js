@@ -7,6 +7,17 @@ const sliders = (imageContainer, sliderImage, prevBtn, nextBtn) => {
 		const nextButton = item.querySelector(nextBtn);
 		const slides = Array.from(slider.querySelectorAll('img'));
 
+		item.addEventListener('mouseenter', () => {
+			prevButton.style.display = 'block';
+			nextButton.style.display = 'block';
+		});
+
+		//обработчик события удаления стрелок слайдера при наведении мышкой на фото
+		item.addEventListener('mouseleave', () => {
+			prevButton.style.display = 'none';
+			nextButton.style.display = 'none';
+		});
+
 		const slideCount = slides.length;
 		let slideIndex = 0;
 

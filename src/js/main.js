@@ -1,13 +1,13 @@
 import mainMenuTabs from "./modules/mainTabs";
 import roomTabs from "./modules/roomTabs";
-import attraction from "./modules/attraction";
 import modalForm from "./modules/modalForm";
 import sliders from "./modules/slider";
+import sliderModalForm from "./modules/sliderModalForm";
 document.addEventListener('DOMContentLoaded', () => {
 
-	mainMenuTabs('.headerLinks','.headerLink','.mainContent','headerLinkActive')
-	roomTabs('.roomLinks','.roomLink','.roomMainContent','headerLinkActive')
-	// attraction();
+	mainMenuTabs('.headerLinks', '.headerLink', '.mainContent', 'headerLinkActive')
+	roomTabs('.roomLinks', '.roomLink', '.roomMainContent', 'headerLinkActive')
 	modalForm();
-	sliders('.attractionTabs','.attractionImages','.prevArrow','.nextArrow');
+	sliders('.attractionTabs', '.attractionImages', '.prevArrow', '.nextArrow');
+	sliderModalForm('.attractionImage');
 });

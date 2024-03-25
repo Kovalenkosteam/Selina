@@ -1,6 +1,5 @@
 const modalForm = () => {
 
-
 	//модалка для окна связи
 	const contact = document.querySelector('.contact');
 	contact.addEventListener('click', () => openModalThanks());

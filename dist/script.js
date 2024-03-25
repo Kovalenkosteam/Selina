@@ -97,9 +97,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_mainTabs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/mainTabs */ "./src/js/modules/mainTabs.js");
 /* harmony import */ var _modules_roomTabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/roomTabs */ "./src/js/modules/roomTabs.js");
-/* harmony import */ var _modules_attraction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/attraction */ "./src/js/modules/attraction.js");
-/* harmony import */ var _modules_modalForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modalForm */ "./src/js/modules/modalForm.js");
-/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+/* harmony import */ var _modules_modalForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modalForm */ "./src/js/modules/modalForm.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+/* harmony import */ var _modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/sliderModalForm */ "./src/js/modules/sliderModalForm.js");
 
 
 
@@ -108,128 +108,10 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', () => {
   Object(_modules_mainTabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.headerLinks', '.headerLink', '.mainContent', 'headerLinkActive');
   Object(_modules_roomTabs__WEBPACK_IMPORTED_MODULE_1__["default"])('.roomLinks', '.roomLink', '.roomMainContent', 'headerLinkActive');
-  // attraction();
-  Object(_modules_modalForm__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_4__["default"])('.attractionTabs', '.attractionImages', '.prevArrow', '.nextArrow');
+  Object(_modules_modalForm__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.attractionTabs', '.attractionImages', '.prevArrow', '.nextArrow');
+  Object(_modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__["default"])('.attractionImage');
 });
-
-/***/ }),
-
-/***/ "./src/js/modules/attraction.js":
-/*!**************************************!*\
-  !*** ./src/js/modules/attraction.js ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-const attraction = () => {
-  const attractionImages = document.querySelectorAll('.attractionImages');
-
-  // вкладка достопремечательности
-  attractionImages.forEach((element, i) => {
-    const attractionImage = element.querySelectorAll('.attractionImage');
-    const prevArrow = element.querySelector('.prevArrow');
-    const nextArrow = element.querySelector('.nextArrow');
-    //обработчик события показа стрелок слайдера при наведении мышкой на фото
-    element.addEventListener('mouseenter', () => {
-      prevArrow.style.display = 'block';
-      nextArrow.style.display = 'block';
-    });
-
-    //обработчик события удаления стрелок слайдера при наведении мышкой на фото
-    element.addEventListener('mouseleave', () => {
-      prevArrow.style.display = 'none';
-      nextArrow.style.display = 'none';
-    });
-
-    //при клике на стрелку слайдера меняем индекс фото
-    prevArrow.addEventListener('click', () => {
-      plusImageIndex(-1);
-    });
-    nextArrow.addEventListener('click', () => {
-      plusImageIndex(1);
-    });
-    let imageIndex = 1;
-    showSlide(1);
-
-    //слайдер
-    function showSlide(n) {
-      if (n > attractionImage.length) {
-        imageIndex = 1;
-      }
-      ;
-      if (n < 1) {
-        imageIndex = attractionImage.length;
-      }
-      ;
-      attractionImage.forEach(item => item.style.display = 'none');
-      attractionImage[imageIndex - 1].style.display = 'block';
-    }
-    ;
-    function plusImageIndex(n) {
-      showSlide(imageIndex = imageIndex + n);
-    }
-    ;
-
-    //добавление обработчика события на клик по картике из слайдера
-    element.addEventListener("click", e => {
-      if (e.target.classList.contains('attractionImage')) {
-        const modal = document.getElementById("modal");
-        var modalImg = document.getElementById("modal-img");
-        var modalPrev = document.getElementsByClassName("prev")[0];
-        var modalNext = document.getElementsByClassName("next")[0];
-        var photos = e.target.parentNode.getElementsByClassName('attractionImage');
-        var currentPhotoIndex = Array.from(photos).indexOf(e.target);
-
-        //запрещаем скролл при показе модалки 
-        document.body.style.overflow = 'hidden';
-
-        // Устанавливаем изображение в модальное окно
-        modalImg.src = e.target.src;
-
-        // Устанавливаем ширину и высоту 
-        modalImg.style.width = "60%";
-        modalImg.style.height = "auto";
-
-        // Показываем модальное окно
-        modal.style.display = "flex";
-
-        // Показываем стрелки и позиционируем их рядом с картинкой
-        modalPrev.style.display = "block";
-        modalNext.style.display = "block";
-        modalPrev.style.left = "10%";
-        modalNext.style.right = "10%";
-
-        // Обработчик клика на кнопку закрытия модального окна
-        document.getElementsByClassName("close")[0].addEventListener("click", function () {
-          modal.style.display = "none";
-          document.body.style.overflow = '';
-        });
-        window.addEventListener('click', function (event) {
-          if (event.target == modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-          }
-        });
-
-        // Обработчик клика на кнопку "Предыдущая"
-        modalPrev.addEventListener("click", function () {
-          currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
-          modalImg.src = photos[currentPhotoIndex].src;
-        });
-
-        // Обработчик клика на кнопку "Следующая"
-        modalNext.addEventListener("click", function () {
-          currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
-          modalImg.src = photos[currentPhotoIndex].src;
-        });
-      }
-    });
-  });
-};
-/* harmony default export */ __webpack_exports__["default"] = (attraction);
 
 /***/ }),
 
@@ -390,6 +272,16 @@ const sliders = (imageContainer, sliderImage, prevBtn, nextBtn) => {
     const prevButton = item.querySelector(prevBtn);
     const nextButton = item.querySelector(nextBtn);
     const slides = Array.from(slider.querySelectorAll('img'));
+    item.addEventListener('mouseenter', () => {
+      prevButton.style.display = 'block';
+      nextButton.style.display = 'block';
+    });
+
+    //обработчик события удаления стрелок слайдера при наведении мышкой на фото
+    item.addEventListener('mouseleave', () => {
+      prevButton.style.display = 'none';
+      nextButton.style.display = 'none';
+    });
     const slideCount = slides.length;
     let slideIndex = 0;
 
@@ -424,6 +316,75 @@ const sliders = (imageContainer, sliderImage, prevBtn, nextBtn) => {
   });
 };
 /* harmony default export */ __webpack_exports__["default"] = (sliders);
+
+/***/ }),
+
+/***/ "./src/js/modules/sliderModalForm.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/sliderModalForm.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const sliderModalForm = container => {
+  const tab = document.querySelectorAll(container);
+  tab.forEach(item => {
+    item.addEventListener("click", e => {
+      const modal = document.getElementById("modal");
+      var modalImg = document.getElementById("modal-img");
+      var modalPrev = document.getElementsByClassName("prev")[0];
+      var modalNext = document.getElementsByClassName("next")[0];
+      var photos = e.target.parentNode.getElementsByClassName('attractionImage');
+      var currentPhotoIndex = Array.from(photos).indexOf(e.target);
+
+      //запрещаем скролл при показе модалки 
+      document.body.style.overflow = 'hidden';
+
+      // Устанавливаем изображение в модальное окно
+      modalImg.src = e.target.src;
+
+      // Устанавливаем ширину и высоту 
+      modalImg.style.width = "60%";
+      modalImg.style.height = "auto";
+
+      // Показываем модальное окно
+      modal.style.display = "flex";
+
+      // Показываем стрелки и позиционируем их рядом с картинкой
+      modalPrev.style.display = "block";
+      modalNext.style.display = "block";
+      modalPrev.style.left = "10%";
+      modalNext.style.right = "10%";
+
+      // Обработчик клика на кнопку закрытия модального окна
+      document.getElementsByClassName("close")[0].addEventListener("click", function () {
+        modal.style.display = "none";
+        document.body.style.overflow = '';
+      });
+      window.addEventListener('click', function (event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Обработчик клика на кнопку "Предыдущая"
+      modalPrev.addEventListener("click", function () {
+        currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+        modalImg.src = photos[currentPhotoIndex].src;
+      });
+
+      // Обработчик клика на кнопку "Следующая"
+      modalNext.addEventListener("click", function () {
+        currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+        modalImg.src = photos[currentPhotoIndex].src;
+      });
+    });
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (sliderModalForm);
 
 /***/ })
 

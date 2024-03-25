@@ -226,7 +226,7 @@
 .nextArrow {
 	top: 35%;
 	position: absolute;
-	display: block;
+	display: none;
 	animation-name: fade;
 	animation-duration: 0.5s;
 }
