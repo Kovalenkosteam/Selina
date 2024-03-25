@@ -13,7 +13,7 @@ const roomTabs = (headerSelecor, tabSelector, contentSelector, activeClass,displ
 		});
 	};
 
-	function showTabContent(i = 1) {
+	function showTabContent(i = 0) {
 		content[i].style.display = display;
 		tab[i].classList.add(activeClass);
 	};
