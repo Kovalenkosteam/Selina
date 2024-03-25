@@ -9,5 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	roomTabs('.roomLinks', '.roomLink', '.roomMainContent', 'headerLinkActive')
 	modalForm();
 	sliders('.attractionTabs', '.attractionImages', '.prevArrow', '.nextArrow');
+	sliders('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
 	sliderModalForm('.attractionImage');
 });
