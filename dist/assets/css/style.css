@@ -453,7 +453,41 @@
 }
 
 
-
+#calendar {
+	display: flex;
+  }
+  
+  .month {
+	flex: 1;
+	margin: 0 10px;
+  }
+  
+  table {
+	width: 100%;
+	border-collapse: collapse;
+  }
+  
+  th, td {
+	border: 1px solid #ccc;
+	padding: 10px;
+	text-align: center;
+  }
+  
+  th {
+	background-color: #f2f2f2;
+  }
+  
+  .weekday {
+	background-color: #f2f2f2;
+	font-weight: bold;
+  }
+  
+  .month-name {
+	text-align: center;
+	font-size: 1.2em;
+	margin-bottom: 10px;
+  }
+  
 
 
 
@@ -498,4 +532,10 @@ footer {
 
 .call a {
 	font-size: 30px;
+}
+
+.month-container{
+	display: flex;
+	margin-bottom: 100px;
+	margin-top: 100px;
 }

@@ -100,19 +100,85 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modalForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modalForm */ "./src/js/modules/modalForm.js");
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
 /* harmony import */ var _modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/sliderModalForm */ "./src/js/modules/sliderModalForm.js");
+/* harmony import */ var _modules_calendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/calendar */ "./src/js/modules/calendar.js");
+
 
 
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  alert('Алина красотка=)');
   Object(_modules_mainTabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.headerLinks', '.headerLink', '.mainContent', 'headerLinkActive');
   Object(_modules_roomTabs__WEBPACK_IMPORTED_MODULE_1__["default"])('.roomLinks', '.roomLink', '.roomMainContent', 'headerLinkActive');
   Object(_modules_modalForm__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.attractionTabs', '.attractionImages', '.prevArrow', '.nextArrow');
   Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
   Object(_modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__["default"])('.attractionImage');
+  Object(_modules_calendar__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/calendar.js":
+/*!************************************!*\
+  !*** ./src/js/modules/calendar.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const calendar = () => {
+  const rooms = document.querySelectorAll('.roomMainContent');
+  rooms.forEach(room => {
+    const firstChildClass = room.firstElementChild.className;
+    const calendarContainer = document.createElement('div');
+    calendarContainer.id = firstChildClass;
+    room.appendChild(calendarContainer);
+    const months = ['Июнь', 'Июль', 'Август'];
+    const daysInMonth = [30, 31, 31];
+    const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+    const calendarDiv = document.createElement('div');
+    calendarDiv.classList.add('month-container');
+    calendarContainer.appendChild(calendarDiv);
+    months.forEach((month, index) => {
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const tbody = document.createElement('tbody');
+      const headerRow = document.createElement('tr');
+      weekdays.forEach(weekday => {
+        const weekdayHeader = document.createElement('th');
+        weekdayHeader.textContent = weekday;
+        headerRow.appendChild(weekdayHeader);
+      });
+      thead.appendChild(headerRow);
+      const firstDay = new Date(new Date().getFullYear(), index + 5, 1);
+      const startingDay = (firstDay.getDay() + 6) % 7;
+      let currentRow = document.createElement('tr');
+      for (let i = 0; i < startingDay; i++) {
+        const emptyCell = document.createElement('td');
+        currentRow.appendChild(emptyCell);
+      }
+      for (let day = 1; day <= daysInMonth[index]; day++) {
+        const cell = document.createElement('td');
+        cell.textContent = day;
+        currentRow.appendChild(cell);
+        if ((day + startingDay) % 7 === 0 || day === daysInMonth[index]) {
+          tbody.appendChild(currentRow);
+          currentRow = document.createElement('tr');
+        }
+      }
+      table.appendChild(thead);
+      table.appendChild(tbody);
+      const monthDiv = document.createElement('div');
+      monthDiv.classList.add('month');
+      monthDiv.appendChild(table);
+      calendarDiv.appendChild(monthDiv);
+    });
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (calendar);
 
 /***/ }),
 
