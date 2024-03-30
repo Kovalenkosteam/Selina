@@ -47,7 +47,6 @@ const sliders = (imageContainer, sliderImage, prevBtn, nextBtn) => {
 			});
 		}
 
-		// Инициализация слайдера
 		updateSlider();
 	})
 

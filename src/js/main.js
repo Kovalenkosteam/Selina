@@ -4,8 +4,8 @@ import modalForm from "./modules/modalForm";
 import sliders from "./modules/slider";
 import sliderModalForm from "./modules/sliderModalForm";
 import calendar from "./modules/calendar";
+import fetchData from "./modules/fetchData";
 document.addEventListener('DOMContentLoaded', () => {
-	alert('Алина красотка=)')
 	mainMenuTabs('.headerLinks', '.headerLink', '.mainContent', 'headerLinkActive')
 	roomTabs('.roomLinks', '.roomLink', '.roomMainContent', 'headerLinkActive')
 	modalForm();
@@ -13,4 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	sliders('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
 	sliderModalForm('.attractionImage');
 	calendar();
+	fetchData()
 });
