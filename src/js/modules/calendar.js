@@ -1,3 +1,4 @@
+import fetchData from './fetchData.js';
 const calendar = () => {
 	const rooms = document.querySelectorAll('.roomMainContent');
 
@@ -55,8 +56,15 @@ const calendar = () => {
 			calendarDiv.appendChild(monthDiv);
 		});
 	});
-
-
+	fetchData(function(data) {
+		// Здесь вы можете делать что-то с данными, например:
+		data.forEach(function(item) {
+			let roomName = item.roomName;
+			const startDate = item.startDate;
+			const endDate = item.endDate;
+			console.log(roomName)
+		});
+	});
 };
 
 export default calendar;

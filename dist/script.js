@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
   Object(_modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__["default"])('.attractionImage');
   Object(_modules_calendar__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  Object(_modules_fetchData__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  // fetchData()
 });
 
 /***/ }),
@@ -132,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _fetchData_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetchData.js */ "./src/js/modules/fetchData.js");
+
 const calendar = () => {
   const rooms = document.querySelectorAll('.roomMainContent');
   rooms.forEach(room => {
@@ -180,6 +182,15 @@ const calendar = () => {
       calendarDiv.appendChild(monthDiv);
     });
   });
+  Object(_fetchData_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function (data) {
+    // Здесь вы можете делать что-то с данными, например:
+    data.forEach(function (item) {
+      let roomName = item.roomName;
+      const startDate = item.startDate;
+      const endDate = item.endDate;
+      console.log(roomName);
+    });
+  });
 };
 /* harmony default export */ __webpack_exports__["default"] = (calendar);
 
@@ -194,24 +205,14 @@ const calendar = () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const fetchData = () => {
-  // Создаем объект XMLHttpRequest
+const fetchData = callback => {
   var xhr = new XMLHttpRequest();
-  // Устанавливаем метод запроса и URL
   xhr.open("GET", "/assets/server.php", true);
-  // Отправляем запрос
   xhr.send();
-
-  // Обработчик события изменения состояния запроса
   xhr.onreadystatechange = function () {
-    // Если состояние запроса - "Готово" и статус запроса - "Успех"
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-      // Парсим JSON ответ
       var data = JSON.parse(this.responseText);
-      // Выводим данные в консоль
-      data.forEach(function (item) {
-        console.log("Room: " + item.roomName + " - Start: " + item.startDate + " - End: " + item.endDate);
-      });
+      callback(data); // Вызываем колбэк с полученными данными
     }
   };
 };

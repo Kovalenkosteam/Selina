@@ -14,5 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	sliders('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
 	sliderModalForm('.attractionImage');
 	calendar();
-	fetchData()
+	// fetchData()
 });
