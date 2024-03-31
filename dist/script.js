@@ -178,6 +178,9 @@ const calendar = () => {
       table.appendChild(tbody);
       const monthDiv = document.createElement('div');
       monthDiv.classList.add('month');
+      const monthNameHeader = document.createElement('h3'); // добавляем заголовок для названия месяца
+      monthNameHeader.textContent = month; // устанавливаем текст заголовка
+      monthDiv.appendChild(monthNameHeader); // добавляем заголовок к месяцу
       monthDiv.appendChild(table);
       calendarDiv.appendChild(monthDiv);
     });

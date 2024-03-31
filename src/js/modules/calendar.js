@@ -1,4 +1,5 @@
 import fetchData from './fetchData.js';
+
 const calendar = () => {
 	const rooms = document.querySelectorAll('.roomMainContent');
 
@@ -52,11 +53,15 @@ const calendar = () => {
 			table.appendChild(tbody);
 			const monthDiv = document.createElement('div');
 			monthDiv.classList.add('month');
+			const monthNameHeader = document.createElement('h3'); // добавляем заголовок для названия месяца
+			monthNameHeader.textContent = month; // устанавливаем текст заголовка
+			monthDiv.appendChild(monthNameHeader); // добавляем заголовок к месяцу
 			monthDiv.appendChild(table);
 			calendarDiv.appendChild(monthDiv);
 		});
 	});
-	fetchData(function(data) {
+
+fetchData(function(data) {
 		// Здесь вы можете делать что-то с данными, например:
 		data.forEach(function(item) {
 			let roomName = item.roomName;
@@ -65,6 +70,13 @@ const calendar = () => {
 			console.log(roomName)
 		});
 	});
+
+
+
+
 };
 
 export default calendar;
+
+	
+
