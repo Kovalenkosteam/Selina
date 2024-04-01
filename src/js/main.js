@@ -4,7 +4,6 @@ import modalForm from "./modules/modalForm";
 import sliders from "./modules/slider";
 import sliderModalForm from "./modules/sliderModalForm";
 import calendar from "./modules/calendar";
-import fetchData from "./modules/fetchData";
 document.addEventListener('DOMContentLoaded', () => {
 	mainMenuTabs('.headerLinks', '.headerLink', '.mainContent', 'headerLinkActive')
 	roomTabs('.roomLinks', '.roomLink', '.roomMainContent', 'headerLinkActive')
@@ -14,5 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	sliders('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
 	sliderModalForm('.attractionImage');
 	calendar();
-	// fetchData()
 });

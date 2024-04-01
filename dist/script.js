@@ -101,8 +101,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
 /* harmony import */ var _modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/sliderModalForm */ "./src/js/modules/sliderModalForm.js");
 /* harmony import */ var _modules_calendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/calendar */ "./src/js/modules/calendar.js");
-/* harmony import */ var _modules_fetchData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/fetchData */ "./src/js/modules/fetchData.js");
-
 
 
 
@@ -118,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
   Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
   Object(_modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__["default"])('.attractionImage');
   Object(_modules_calendar__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  // fetchData()
 });
 
 /***/ }),
@@ -264,7 +261,7 @@ const mainMenuTabs = (headerSelecor, tabSelector, contentSelector, activeClass, 
     });
   }
   ;
-  function showTabContent(i = 1) {
+  function showTabContent(i = 0) {
     content[i].style.display = display;
     tab[i].classList.add(activeClass);
   }
