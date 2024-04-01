@@ -186,17 +186,14 @@ const calendar = () => {
       Object(_fetchData_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function (data) {
         data.forEach(function (item) {
           let roomName = item.roomName;
-          const startDate = new Date(item.startDate);
-          const endDate = new Date(item.endDate);
+          const startDate = new Date(item.startDate.replace(/-/g, '/'));
+          const endDate = new Date(item.endDate.replace(/-/g, '/'));
           if (roomName === calendarContainer.id) {
-            const cells = tbody.querySelectorAll('td'); // Используем tbody, чтобы найти ячейки только в текущем месяце
+            const cells = tbody.querySelectorAll('td');
             cells.forEach(cell => {
               const day = parseInt(cell.textContent);
               const cellDate = new Date(firstDay.getFullYear(), index + 5, day);
-
-              // Проверяем, принадлежит ли день текущему месяцу
               if (cellDate.getMonth() === index + 5) {
-                // Если день находится в промежутке между startDate и endDate, закрашиваем его красным
                 if (cellDate >= startDate && cellDate <= endDate) {
                   cell.style.backgroundColor = 'red';
                 }
