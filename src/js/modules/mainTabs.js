@@ -13,7 +13,7 @@ const mainMenuTabs = (headerSelecor, tabSelector, contentSelector, activeClass,d
 		});
 	};
 
-	function showTabContent(i = 0) {
+	function showTabContent(i = 1) {
 		content[i].style.display = display;
 		tab[i].classList.add(activeClass);
 	};

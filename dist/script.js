@@ -178,20 +178,33 @@ const calendar = () => {
       table.appendChild(tbody);
       const monthDiv = document.createElement('div');
       monthDiv.classList.add('month');
-      const monthNameHeader = document.createElement('h3'); // добавляем заголовок для названия месяца
-      monthNameHeader.textContent = month; // устанавливаем текст заголовка
-      monthDiv.appendChild(monthNameHeader); // добавляем заголовок к месяцу
+      const monthNameHeader = document.createElement('h3');
+      monthNameHeader.textContent = month;
+      monthDiv.appendChild(monthNameHeader);
       monthDiv.appendChild(table);
       calendarDiv.appendChild(monthDiv);
-    });
-  });
-  Object(_fetchData_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function (data) {
-    // Здесь вы можете делать что-то с данными, например:
-    data.forEach(function (item) {
-      let roomName = item.roomName;
-      const startDate = item.startDate;
-      const endDate = item.endDate;
-      console.log(roomName);
+      Object(_fetchData_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function (data) {
+        data.forEach(function (item) {
+          let roomName = item.roomName;
+          const startDate = new Date(item.startDate);
+          const endDate = new Date(item.endDate);
+          if (roomName === calendarContainer.id) {
+            const cells = tbody.querySelectorAll('td'); // Используем tbody, чтобы найти ячейки только в текущем месяце
+            cells.forEach(cell => {
+              const day = parseInt(cell.textContent);
+              const cellDate = new Date(firstDay.getFullYear(), index + 5, day);
+
+              // Проверяем, принадлежит ли день текущему месяцу
+              if (cellDate.getMonth() === index + 5) {
+                // Если день находится в промежутке между startDate и endDate, закрашиваем его красным
+                if (cellDate >= startDate && cellDate <= endDate) {
+                  cell.style.backgroundColor = 'red';
+                }
+              }
+            });
+          }
+        });
+      });
     });
   });
 };
@@ -245,7 +258,7 @@ const mainMenuTabs = (headerSelecor, tabSelector, contentSelector, activeClass, 
     });
   }
   ;
-  function showTabContent(i = 0) {
+  function showTabContent(i = 1) {
     content[i].style.display = display;
     tab[i].classList.add(activeClass);
   }
