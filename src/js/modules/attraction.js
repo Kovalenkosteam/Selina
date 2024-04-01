@@ -1,108 +1,83 @@
 const attraction = () => {
+    document.querySelectorAll('.attractionImages').forEach(element => {
+        const attractionImage = element.querySelectorAll('.attractionImage');
+        const prevArrow = element.querySelector('.prevArrow');
+        const nextArrow = element.querySelector('.nextArrow');
 
+        const showArrows = () => {
+            prevArrow.style.display = 'block';
+            nextArrow.style.display = 'block';
+        };
 
-	const attractionImages = document.querySelectorAll('.attractionImages');
+        const hideArrows = () => {
+            prevArrow.style.display = 'none';
+            nextArrow.style.display = 'none';
+        };
 
-	// вкладка достопремечательности
-	attractionImages.forEach((element, i) => {
-		const attractionImage = element.querySelectorAll('.attractionImage')
-		const prevArrow = element.querySelector('.prevArrow');
-		const nextArrow = element.querySelector('.nextArrow');
-		//обработчик события показа стрелок слайдера при наведении мышкой на фото
-		element.addEventListener('mouseenter', () => {
-			prevArrow.style.display = 'block';
-			nextArrow.style.display = 'block';
-		});
+        element.addEventListener('mouseenter', showArrows);
+        element.addEventListener('mouseleave', hideArrows);
 
-		//обработчик события удаления стрелок слайдера при наведении мышкой на фото
-		element.addEventListener('mouseleave', () => {
-			prevArrow.style.display = 'none';
-			nextArrow.style.display = 'none';
-		});
+        let imageIndex = 0;
 
-		//при клике на стрелку слайдера меняем индекс фото
-		prevArrow.addEventListener('click', () => {
-			plusImageIndex(-1);
-		});
+        const showSlide = (n) => {
+            imageIndex = (n + attractionImage.length) % attractionImage.length;
+            attractionImage.forEach((item, index) => {
+                item.style.display = index === imageIndex ? 'block' : 'none';
+            });
+        };
 
-		nextArrow.addEventListener('click', () => {
-			plusImageIndex(1);
-		});
-		let imageIndex = 1;
+        const plusImageIndex = (n) => {
+            showSlide(imageIndex + n);
+        };
 
-		showSlide(1)
+        prevArrow.addEventListener('click', () => plusImageIndex(-1));
+        nextArrow.addEventListener('click', () => plusImageIndex(1));
 
-		//слайдер
-		function showSlide(n) {
-			if (n > attractionImage.length) {
-				imageIndex = 1;
-			};
-			if (n < 1) {
-				imageIndex = attractionImage.length;
-			};
-			attractionImage.forEach(item => item.style.display = 'none');
-			attractionImage[imageIndex - 1].style.display = 'block';
-		};
-		function plusImageIndex(n) {
-			showSlide(imageIndex = imageIndex + n);
-		};
+        showSlide(0);
 
-		//добавление обработчика события на клик по картике из слайдера
-		element.addEventListener("click", (e) => {
-			if (e.target.classList.contains('attractionImage')) {
-				const modal = document.getElementById("modal");
-				var modalImg = document.getElementById("modal-img");
-				var modalPrev = document.getElementsByClassName("prev")[0];
-				var modalNext = document.getElementsByClassName("next")[0];
-				var photos = e.target.parentNode.getElementsByClassName('attractionImage');
-				var currentPhotoIndex = Array.from(photos).indexOf(e.target);
+        element.addEventListener("click", (e) => {
+            if (e.target.classList.contains('attractionImage')) {
+                const modal = document.getElementById("modal");
+                const modalImg = document.getElementById("modal-img");
+                const modalPrev = document.getElementsByClassName("prev")[0];
+                const modalNext = document.getElementsByClassName("next")[0];
+                const photos = [...element.getElementsByClassName('attractionImage')];
+                const currentPhotoIndex = photos.findIndex(photo => photo === e.target);
 
-				//запрещаем скролл при показе модалки 
-				document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden';
+                modalImg.src = e.target.src;
+                modalImg.style.width = "60%";
+                modalImg.style.height = "auto";
+                modal.style.display = "flex";
+                modalPrev.style.display = "block";
+                modalNext.style.display = "block";
+                modalPrev.style.left = "10%";
+                modalNext.style.right = "10%";
 
-				// Устанавливаем изображение в модальное окно
-				modalImg.src = e.target.src;
+                document.getElementsByClassName("close")[0].addEventListener("click", () => {
+                    modal.style.display = "none";
+                    document.body.style.overflow = '';
+                });
 
-				// Устанавливаем ширину и высоту 
-				modalImg.style.width = "60%";
-				modalImg.style.height = "auto";
+                window.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = '';
+                    }
+                });
 
-				// Показываем модальное окно
-				modal.style.display = "flex";
+                modalPrev.addEventListener("click", () => {
+                    const newIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+                    modalImg.src = photos[newIndex].src;
+                });
 
-				// Показываем стрелки и позиционируем их рядом с картинкой
-				modalPrev.style.display = "block";
-				modalNext.style.display = "block";
-				modalPrev.style.left = "10%";
-				modalNext.style.right = "10%";
-
-
-				// Обработчик клика на кнопку закрытия модального окна
-				document.getElementsByClassName("close")[0].addEventListener("click", function () {
-					modal.style.display = "none";
-					document.body.style.overflow = '';
-				});
-				window.addEventListener('click', function (event) {
-					if (event.target == modal) {
-						modal.style.display = 'none';
-						document.body.style.overflow = '';
-					}
-				});
-
-				// Обработчик клика на кнопку "Предыдущая"
-				modalPrev.addEventListener("click", function () {
-					currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
-					modalImg.src = photos[currentPhotoIndex].src;
-				});
-
-				// Обработчик клика на кнопку "Следующая"
-				modalNext.addEventListener("click", function () {
-					currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
-					modalImg.src = photos[currentPhotoIndex].src;
-				});
-			}
-		});
-	});
-}
+                modalNext.addEventListener("click", () => {
+                    const newIndex = (currentPhotoIndex + 1) % photos.length;
+                    modalImg.src = photos[newIndex].src;
+                });
+            }
+        });
+    });
+};
 
 export default attraction;

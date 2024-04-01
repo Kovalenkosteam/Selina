@@ -135,24 +135,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fetchData_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetchData.js */ "./src/js/modules/fetchData.js");
 
 const calendar = () => {
-  const rooms = document.querySelectorAll('.roomMainContent');
-  rooms.forEach(room => {
+  const monthsData = [{
+    name: 'Июнь',
+    days: 30
+  }, {
+    name: 'Июль',
+    days: 31
+  }, {
+    name: 'Август',
+    days: 31
+  }];
+  document.querySelectorAll('.roomMainContent').forEach(room => {
     const firstChildClass = room.firstElementChild.className;
     const calendarContainer = document.createElement('div');
     calendarContainer.id = firstChildClass;
     room.appendChild(calendarContainer);
-    const months = ['Июнь', 'Июль', 'Август'];
-    const daysInMonth = [30, 31, 31];
-    const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
     const calendarDiv = document.createElement('div');
     calendarDiv.classList.add('month-container');
     calendarContainer.appendChild(calendarDiv);
-    months.forEach((month, index) => {
+    monthsData.forEach(({
+      name,
+      days
+    }, index) => {
       const table = document.createElement('table');
       const thead = document.createElement('thead');
       const tbody = document.createElement('tbody');
       const headerRow = document.createElement('tr');
-      weekdays.forEach(weekday => {
+      ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'].forEach(weekday => {
         const weekdayHeader = document.createElement('th');
         weekdayHeader.textContent = weekday;
         headerRow.appendChild(weekdayHeader);
@@ -162,14 +171,13 @@ const calendar = () => {
       const startingDay = (firstDay.getDay() + 6) % 7;
       let currentRow = document.createElement('tr');
       for (let i = 0; i < startingDay; i++) {
-        const emptyCell = document.createElement('td');
-        currentRow.appendChild(emptyCell);
+        currentRow.appendChild(document.createElement('td'));
       }
-      for (let day = 1; day <= daysInMonth[index]; day++) {
+      for (let day = 1; day <= days; day++) {
         const cell = document.createElement('td');
         cell.textContent = day;
         currentRow.appendChild(cell);
-        if ((day + startingDay) % 7 === 0 || day === daysInMonth[index]) {
+        if ((day + startingDay) % 7 === 0 || day === days) {
           tbody.appendChild(currentRow);
           currentRow = document.createElement('tr');
         }
@@ -179,24 +187,25 @@ const calendar = () => {
       const monthDiv = document.createElement('div');
       monthDiv.classList.add('month');
       const monthNameHeader = document.createElement('h3');
-      monthNameHeader.textContent = month;
+      monthNameHeader.textContent = name;
       monthDiv.appendChild(monthNameHeader);
       monthDiv.appendChild(table);
       calendarDiv.appendChild(monthDiv);
-      Object(_fetchData_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function (data) {
-        data.forEach(function (item) {
-          let roomName = item.roomName;
-          const startDate = new Date(item.startDate.replace(/-/g, '/'));
-          const endDate = new Date(item.endDate.replace(/-/g, '/'));
+      Object(_fetchData_js__WEBPACK_IMPORTED_MODULE_0__["default"])(data => {
+        data.forEach(item => {
+          const {
+            roomName,
+            startDate,
+            endDate
+          } = item;
+          const startDateObj = new Date(startDate.replace(/-/g, '/'));
+          const endDateObj = new Date(endDate.replace(/-/g, '/'));
           if (roomName === calendarContainer.id) {
-            const cells = tbody.querySelectorAll('td');
-            cells.forEach(cell => {
+            tbody.querySelectorAll('td').forEach(cell => {
               const day = parseInt(cell.textContent);
               const cellDate = new Date(firstDay.getFullYear(), index + 5, day);
-              if (cellDate.getMonth() === index + 5) {
-                if (cellDate >= startDate && cellDate <= endDate) {
-                  cell.style.backgroundColor = 'red';
-                }
+              if (cellDate.getMonth() === index + 5 && cellDate >= startDateObj && cellDate <= endDateObj) {
+                cell.style.backgroundColor = 'red';
               }
             });
           }
@@ -288,7 +297,6 @@ const mainMenuTabs = (headerSelecor, tabSelector, contentSelector, activeClass, 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 const modalForm = () => {
-  //модалка для окна связи
   const contact = document.querySelector('.contact');
   contact.addEventListener('click', () => openModalThanks());
   const modalThanks = document.querySelector('.modalThanks');
@@ -385,7 +393,6 @@ __webpack_require__.r(__webpack_exports__);
 const sliders = (imageContainer, sliderImage, prevBtn, nextBtn) => {
   const container = document.querySelectorAll(imageContainer);
   container.forEach(item => {
-    // Получаем элементы слайдера
     const slider = item.querySelector(sliderImage);
     const prevButton = item.querySelector(prevBtn);
     const nextButton = item.querySelector(nextBtn);
@@ -394,31 +401,22 @@ const sliders = (imageContainer, sliderImage, prevBtn, nextBtn) => {
       prevButton.style.display = 'block';
       nextButton.style.display = 'block';
     });
-
-    //обработчик события удаления стрелок слайдера при наведении мышкой на фото
     item.addEventListener('mouseleave', () => {
       prevButton.style.display = 'none';
       nextButton.style.display = 'none';
     });
     const slideCount = slides.length;
     let slideIndex = 0;
-
-    // Функция для показа предыдущего слайда
     function showPreviousSlide() {
       slideIndex = (slideIndex - 1 + slideCount) % slideCount;
       updateSlider();
     }
-
-    // Функция для показа следующего слайда
     function showNextSlide() {
       slideIndex = (slideIndex + 1) % slideCount;
       updateSlider();
     }
-    // Устанавливаем обработчики событий для кнопок
     prevButton.addEventListener('click', showPreviousSlide);
     nextButton.addEventListener('click', showNextSlide);
-
-    // Функция для обновления отображения слайдера
     function updateSlider() {
       slides.forEach((slide, index) => {
         if (index === slideIndex) {
@@ -454,27 +452,15 @@ const sliderModalForm = container => {
       var modalNext = document.getElementsByClassName("next")[0];
       var photos = e.target.parentNode.getElementsByClassName('attractionImage');
       var currentPhotoIndex = Array.from(photos).indexOf(e.target);
-
-      //запрещаем скролл при показе модалки 
       document.body.style.overflow = 'hidden';
-
-      // Устанавливаем изображение в модальное окно
       modalImg.src = e.target.src;
-
-      // Устанавливаем ширину и высоту 
       modalImg.style.width = "60%";
       modalImg.style.height = "auto";
-
-      // Показываем модальное окно
       modal.style.display = "flex";
-
-      // Показываем стрелки и позиционируем их рядом с картинкой
       modalPrev.style.display = "block";
       modalNext.style.display = "block";
       modalPrev.style.left = "10%";
       modalNext.style.right = "10%";
-
-      // Обработчик клика на кнопку закрытия модального окна
       document.getElementsByClassName("close")[0].addEventListener("click", function () {
         modal.style.display = "none";
         document.body.style.overflow = '';
@@ -485,14 +471,10 @@ const sliderModalForm = container => {
           document.body.style.overflow = '';
         }
       });
-
-      // Обработчик клика на кнопку "Предыдущая"
       modalPrev.addEventListener("click", function () {
         currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
         modalImg.src = photos[currentPhotoIndex].src;
       });
-
-      // Обработчик клика на кнопку "Следующая"
       modalNext.addEventListener("click", function () {
         currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
         modalImg.src = photos[currentPhotoIndex].src;

@@ -17,11 +17,13 @@ const roomTabs = (headerSelecor, tabSelector, contentSelector, activeClass,displ
 		content[i].style.display = display;
 		tab[i].classList.add(activeClass);
 	};
+	
 	hideTabContent();
 	showTabContent();
 
 	header.addEventListener('click', (e) => {
 		const target = e.target;
+
 		if (target&&
 			(target.classList.contains(tabSelector.replace(/\./, ""))
 			|| target.parentNode.classList.contains(tabSelector.replace(/\./, "")))) {
@@ -34,5 +36,4 @@ const roomTabs = (headerSelecor, tabSelector, contentSelector, activeClass,displ
 		}
 	});
 };
-
 export default roomTabs;

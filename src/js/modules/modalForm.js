@@ -1,6 +1,5 @@
 const modalForm = () => {
 
-	//модалка для окна связи
 	const contact = document.querySelector('.contact');
 	contact.addEventListener('click', () => openModalThanks());
 	const modalThanks = document.querySelector('.modalThanks');
@@ -32,7 +31,6 @@ const modalForm = () => {
 		}
 	});
 
-
 	const modalTimerId = setTimeout(openModalThanks, 30000);
 
 	function showModalByScroll() {
@@ -43,5 +41,4 @@ const modalForm = () => {
 	}
 	window.addEventListener('scroll', showModalByScroll);
 }
-
 export default modalForm;
