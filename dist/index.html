@@ -452,11 +452,15 @@
 
 		<div class="mainContent">
 			<div class="aboutUs">
-				<iframe
+				<iframe class="card"
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d443.4055755237461!2d38.26719277701546!3d46.719554758835116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e42f2acfbda171%3A0xf7333edb1139de22!2z0YPQuy4g0JzQvtGA0YHQutCw0Y8sIDQzLCDQldC50YHQuiwg0JrRgNCw0YHQvdC-0LTQsNGA0YHQutC40Lkg0LrRgNCw0LksIDM1MzY4MA!5e0!3m2!1sru!2sru!4v1712003885019!5m2!1sru!2sru"
 					width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
 					referrerpolicy="no-referrer-when-downgrade"></iframe>
-				<span> позвоните нам</span>
+			<divc class="callUs">
+				<span>Евгений  +79780556794</span>
+				<span>Евгений  +79780556794</span>
+				<span>Евгений  +79780556794</span>
+			</divc>
 			</div>
 
 		</div>
@@ -491,11 +495,14 @@
 	</footer>
 	<script type="text/javascript" src="script.js"></script>
 	<script>
-        document.querySelector('.burger').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.querySelector('.headerLinks').classList.toggle('open')
-        })
-    </script>
+		document.querySelector('.burger').addEventListener('click', function () {
+			this.classList.toggle('active');
+			document.querySelector('.headerLinks').classList.toggle('open');
+			if (document.querySelector('.headerLinks').classList.contains('open')) {
+				document.body.style.overflow = 'hidden';
+			} 
+		})
+	</script>
 </body>
 
 </html>

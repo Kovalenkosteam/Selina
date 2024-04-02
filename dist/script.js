@@ -304,6 +304,7 @@ const mainMenuTabs = (headerSelecor, tabSelector, contentSelector, activeClass, 
           showTabContent(i);
           burger.classList.remove('active');
           headerLinks.classList.remove('open');
+          document.body.style.overflow = '';
         }
       });
     }

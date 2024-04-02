@@ -38,4 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// }else{
 	// 	alert("is no mobile !");
 	// }
+
+	
 });
