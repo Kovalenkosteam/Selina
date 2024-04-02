@@ -30,7 +30,7 @@ const modalForm = () => {
 		}
 	});
 
-	const modalTimerId = setTimeout(openModalThanks, 3000);
+	// const modalTimerId = setTimeout(openModalThanks, 3000);
 
 	function showModalByScroll() {
 		if ((window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) && mainContent[2].style.display=='block') {

@@ -22,6 +22,9 @@ body {
 
 .open{
     display: flex !important;
+	flex-wrap: wrap;
+	align-content:flex-start;
+	
 }
 
 .header{
@@ -125,6 +128,18 @@ body {
         flex-direction: column;
         row-gap: 30px;
     }
+
+	.discription {
+		flex-direction: column-reverse !important;
+		
+	}
+	.discriptionAbout{
+		max-width: 100% !important;
+		margin-top: auto;
+	}
+	
+	
+
 }
 
 @keyframes burgerAnimation {
@@ -279,6 +294,9 @@ body {
 	display: flex;
 	flex-direction: row;
 	height: auto;
+	padding-bottom: 100px;
+	align-items:center;
+	justify-content: space-around;
 }
 
 .discriptionAbout {
@@ -287,16 +305,19 @@ body {
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 30px;
+	max-width: 40%;
+	align-items:center;
 }
 
-.discriptionAbout h2 {
-	text-align: end;
-}
 
 .discriptionImageAbout {
 	position: relative;
+}
+
+.discriptionImageAbout img{
+	max-width: 100%;
 	width: 600px;
-	height: 400px;
+	
 }
 
 .prevArrow,
@@ -434,7 +455,9 @@ body {
 }
 
 
-.attractionContainer {}
+.attractionContainer {
+	padding-bottom: 100px;
+}
 
 .attractionTabs {
 	margin-top: 50px;
@@ -693,20 +716,19 @@ th {
 
 
 
-footer {
-	height: 70px;
-	background-color: aqua;
-	position: fixed;
-	left: 0px;
-	bottom: 0px;
-	width: 100%;
-}
+
 
 .footer {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
 	align-content: center;
+	height: 70px;
+	background-color: aqua;
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
 }
 
 .about {

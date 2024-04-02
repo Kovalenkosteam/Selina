@@ -116,6 +116,31 @@ document.addEventListener('DOMContentLoaded', () => {
   Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
   Object(_modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__["default"])('.attractionImage');
   Object(_modules_calendar__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  // const isMobile = {
+  //     Android: function() {
+  //         return navigator.userAgent.match(/Android/i);
+  //     },
+  //     BlackBerry: function() {
+  //         return navigator.userAgent.match(/BlackBerry/i);
+  //     },
+  //     iOS: function() {
+  //         return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  //     },
+  //     Opera: function() {
+  //         return navigator.userAgent.match(/Opera Mini/i);
+  //     },
+  //     Windows: function() {
+  //         return navigator.userAgent.match(/IEMobile/i);
+  //     },
+  //     any: function() {
+  //         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+  //     }
+  // };
+  // if (isMobile.any()) {
+  // 	alert("is mobile !");
+  // }else{
+  // 	alert("is no mobile !");
+  // }
 });
 
 /***/ }),
@@ -324,7 +349,9 @@ const modalForm = () => {
       closeModalThanks();
     }
   });
-  const modalTimerId = setTimeout(openModalThanks, 3000);
+
+  // const modalTimerId = setTimeout(openModalThanks, 3000);
+
   function showModalByScroll() {
     if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight && mainContent[2].style.display == 'block') {
       openModalThanks();
