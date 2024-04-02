@@ -15,22 +15,27 @@
 
 <body>
 
+	<div class="wrapper">
+		<header class="header">
+			<div class="headerLogo">
+				<p>Selina</p>
+			</div>
 
-	<header class="header">
-		<div class="headerLogo">
-			<p>Selina</p>
-		</div>
+			<div class="headerLinks">
+				<div class="headerLink">О нас</div>
+				<div class="headerLink">Номера</div>
+				<div class="headerLink">Достопремечательности</div>
+				<div class="headerLink">Контакты</div>
+			</div>
 
-		<div class="headerLinks">
-			<div class="headerLink">О нас</div>
-			<div class="headerLink">Номера</div>
-			<div class="headerLink">Куда сходить?</div>
-			<div class="headerLink">Контакты</div>
 			<button class="headerLink contact">Связаться с нами</button>
-		</div>
 
-	</header>
+			<div class="burger">
+				<span></span>
+			</div>
 
+		</header>
+	</div>
 
 	<div class="main">
 
@@ -453,9 +458,9 @@
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d443.4055755237461!2d38.26719277701546!3d46.719554758835116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e42f2acfbda171%3A0xf7333edb1139de22!2z0YPQuy4g0JzQvtGA0YHQutCw0Y8sIDQzLCDQldC50YHQuiwg0JrRgNCw0YHQvdC-0LTQsNGA0YHQutC40Lkg0LrRgNCw0LksIDM1MzY4MA!5e0!3m2!1sru!2sru!4v1712003885019!5m2!1sru!2sru"
 					width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
 					referrerpolicy="no-referrer-when-downgrade"></iframe>
-			<span> позвоните нам</span>
-		</div>
-			
+				<span> позвоните нам</span>
+			</div>
+
 		</div>
 
 		<div class="modalThanks">
@@ -487,6 +492,12 @@
 		</div>
 	</footer>
 	<script type="text/javascript" src="script.js"></script>
+	<script>
+        document.querySelector('.burger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.headerLinks').classList.toggle('open');
+        })
+    </script>
 </body>
 
 </html>

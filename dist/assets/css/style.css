@@ -1,4 +1,171 @@
-.header {
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background-color: #eee;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    flex-grow: 1;
+}
+
+.open{
+    display: flex !important;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100px;
+    background-color: #3E424B;
+    color: #FAF6F2;
+    padding: 0 40px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid #FAF6F2;
+    width: 90px;
+    height: 90px;
+}
+
+.headerLinks{
+    display: flex;
+    width: 700px;
+    padding: 0 40px;
+	align-items:center;
+	justify-content: space-around;
+}
+
+.headerLink{
+    list-style: none;
+}
+
+.burger{
+    display: none;
+    position: relative;
+    z-index: 50;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30px;
+    height: 18px;
+}
+
+.burger span{
+    height: 2px;
+    width: 80%;
+    transform: scale(1);
+    background-color: #FAF6F2;
+}
+
+.burger::before, .burger::after{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #FAF6F2;
+    transition: all 0.3s ease 0s;
+}
+
+.burger::before { top: 0 }
+
+.burger::after { bottom: 0 }
+
+
+/* Добавляем класс active для анимации иконки бургера */
+.burger.active span { transform: scale(0) }
+
+.burger.active::before{
+    top: 50%;
+    transform: rotate(-45deg) translate(0, -50%);
+}
+
+.burger.active::after{
+    bottom: 50%;
+    transform: rotate(45deg) translate(0, 50%);
+}
+
+
+/* При разрешении экрана 900px и ниже, выводим на экран иконку бургера */
+@media (max-width: 900px) {
+
+    .burger { display: flex }
+
+    .headerLinks{
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0; bottom: 0; left: 0; right: 0;
+        z-index: 50;
+        overflow-y: auto;
+        padding: 50px 40px;
+        background-color: black;
+        animation: burgerAnimation 0.4s;
+    }
+
+    .headerLink{
+        flex-direction: column;
+        row-gap: 30px;
+    }
+}
+
+@keyframes burgerAnimation {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+
+.headerLogo {
+	font-size: 30px;
+	animation: blink 1s infinite;
+	font-weight: 800;
+	text-align: center;
+	text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.3);
+	background-color:#b9b9b9;
+	background-clip: text;
+	color:transparent;
+	font-family: 'M PLUS 1p', sans-serif;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.4;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+
+
+
+
+
+
+/* .header {
 	display: flex;
 	position: sticky;
 	top: 0px;
@@ -11,27 +178,7 @@
 	z-index: 2;
 }
 
-.headerLogo {
-	font-size: xx-large;
-	font-family: 'Roboto Slab';
-	text-shadow: 1px 5px 10px rgb(84, 255, 4);
-	animation: blink 1s infinite;
-	font-weight: 900;
-}
 
-@keyframes blink {
-	0% {
-		opacity: 1;
-	}
-
-	50% {
-		opacity: 0.65;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
 
 .headerLinks {
 	display: flex;
@@ -45,7 +192,7 @@
 	font-size: x-large;
 	cursor: pointer;
 	text-align: center;
-}
+} */
 
 .headerLinkActive {
 	color: #000000;

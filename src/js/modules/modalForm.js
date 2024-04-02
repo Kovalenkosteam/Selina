@@ -13,7 +13,6 @@ const modalForm = () => {
 	}
 
 	function openModalThanks() {
-
 		modalThanks.classList.add('showModalThanks');
 		modalThanks.classList.remove('hide');
 		document.body.style.overflow = 'hidden';
@@ -31,7 +30,7 @@ const modalForm = () => {
 		}
 	});
 
-	const modalTimerId = setTimeout(openModalThanks, 30000);
+	const modalTimerId = setTimeout(openModalThanks, 3000);
 
 	function showModalByScroll() {
 		if ((window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) && mainContent[2].style.display=='block') {

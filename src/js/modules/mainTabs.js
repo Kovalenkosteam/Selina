@@ -27,8 +27,13 @@ const mainMenuTabs = (headerSelecor, tabSelector, contentSelector, activeClass,d
 			|| target.parentNode.classList.contains(tabSelector.replace(/\./, "")))) {
 			tab.forEach((item, i) => {
 				if (target == item || target.parentNode == item) {
+					const burger= document.querySelector('.burger')
+					const headerLinks=document.querySelector('.headerLinks')
 					hideTabContent();
 					showTabContent(i);
+					burger.classList.remove('active')
+					headerLinks.classList.remove('open')
+
 				}
 			})
 		}

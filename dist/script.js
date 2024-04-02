@@ -273,8 +273,12 @@ const mainMenuTabs = (headerSelecor, tabSelector, contentSelector, activeClass, 
     if (target && (target.classList.contains(tabSelector.replace(/\./, "")) || target.parentNode.classList.contains(tabSelector.replace(/\./, "")))) {
       tab.forEach((item, i) => {
         if (target == item || target.parentNode == item) {
+          const burger = document.querySelector('.burger');
+          const headerLinks = document.querySelector('.headerLinks');
           hideTabContent();
           showTabContent(i);
+          burger.classList.remove('active');
+          headerLinks.classList.remove('open');
         }
       });
     }
@@ -320,7 +324,7 @@ const modalForm = () => {
       closeModalThanks();
     }
   });
-  const modalTimerId = setTimeout(openModalThanks, 30000);
+  const modalTimerId = setTimeout(openModalThanks, 3000);
   function showModalByScroll() {
     if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight && mainContent[2].style.display == 'block') {
       openModalThanks();
