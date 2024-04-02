@@ -30,7 +30,7 @@ body {
     align-items: center;
     justify-content: space-between;
     min-height: 100px;
-    background-color: #3E424B;
+    background-color: #000000;
     color: #FAF6F2;
     padding: 0 40px;
 }
@@ -51,11 +51,12 @@ body {
     width: 700px;
     padding: 0 40px;
 	align-items:center;
-	justify-content: space-around;
+	justify-content: space-evenly;
 }
 
 .headerLink{
     list-style: none;
+	cursor: pointer;
 }
 
 .burger{
@@ -169,17 +170,16 @@ body {
 } */
 
 .headerLinkActive {
-	color: #000000;
+	color: #04f02b;
 
-	text-shadow: 10px 5px 5px red;
+	text-shadow: 10px 5px 5px rgb(28, 207, 154);
 }
 
 .contact {
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(255, 255, 255, 0);
+	background-color: rgba(255, 255, 255, 80);
 	font-size: 18px;
 	font-weight: 700;
 	border: 1px solid rgba(0, 0, 0, 0);
@@ -725,6 +725,13 @@ th {
 
 @media (max-width: 900px) {
 
+	.open{
+		display: flex;
+		flex-wrap: wrap;
+		align-content:flex-start;
+		
+	}
+
     .burger { display: flex }
 
     .headerLinks{
@@ -743,8 +750,9 @@ th {
 		justify-content: flex-start;
     }
 
-    .headerLink{
+    .headerLinks > .headerLink{
         flex-direction: column;
+		font-size: 20px;
 		padding-bottom: 40px;
     }
 
