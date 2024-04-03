@@ -275,6 +275,7 @@ body {
 .discriptionImageAbout img{
 	max-width: 100%;
 	width: 600px;
+	max-height: 400px;
 	
 }
 
@@ -395,9 +396,10 @@ body {
 
 }
 
-.discriptionImage img{
+.roomImage{
 	max-width: 100%;
 	width: 600px;
+	
 }
 
 .house {
