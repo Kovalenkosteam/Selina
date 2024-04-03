@@ -385,36 +385,33 @@ body {
 	flex-direction: column;
 }
 
-.econom {
+.econom,
+.house,
+.lux {
 	display: flex;
 	flex-direction: row;
 	height: auto;
+	padding-bottom: 100px;
+	align-items:center;
+	justify-content: space-around;
 }
 
 .discriptionImage {
-	max-width: 600px;
-
+	position: relative;
 }
 
+.discriptionImage img{
+	max-width: 100%;
+	width: 600px;
+	max-height: 400px;
+}
 .roomImage{
 	max-width: 100%;
 	width: 600px;
 	
 }
 
-.house {
-	display: flex;
-	flex-direction: row;
-	height: auto;
 
-}
-
-.lux {
-	display: flex;
-	flex-direction: row;
-	height: auto;
-
-}
 
 
 .attractionContainer {
