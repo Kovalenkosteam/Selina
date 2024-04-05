@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Object(_modules_mainTabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.headerLinks', '.headerLink', '.mainContent', 'headerLinkActive');
   Object(_modules_roomTabs__WEBPACK_IMPORTED_MODULE_1__["default"])('.roomLinks', '.roomLink', '.roomMainContent', 'headerLinkActive');
   Object(_modules_modalForm__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.discription', '.discriptionImageAbout', '.prevArrow', '.nextArrow');
+  // sliders('.discription', '.discriptionImageAbout', '.prevArrow', '.nextArrow');
   Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.attractionTabs', '.attractionImages', '.prevArrow', '.nextArrow');
   Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
   Object(_modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__["default"])('.attractionImage');
