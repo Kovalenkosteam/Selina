@@ -13,48 +13,6 @@
 	<meta name="description" content="description">
 	<meta name="keywords" content="word_for_search">
 	<meta name="author" content="Eugene Kovalenko">
-	<style type="text/css">
-		html, body {
-		  margin: 0;
-		  padding: 0;
-		}
-	
-		* {
-		  box-sizing: border-box;
-		}
-	
-		.slider {
-			width: 50%;
-			margin: 100px auto;
-		}
-	
-		.slick-slide {
-		  margin: 0px 20px;
-		}
-	
-		.slick-slide img {
-		  width: 100%;
-		}
-	
-		.slick-prev:before,
-		.slick-next:before {
-		  color: black;
-		}
-	
-	
-		.slick-slide {
-		  transition: all ease-in-out .3s;
-		  opacity: .2;
-		}
-		
-		.slick-active {
-		  opacity: .5;
-		}
-	
-		.slick-current {
-		  opacity: 1;
-		}
-	  </style>
 </head>
 
 <body>
@@ -145,9 +103,9 @@
 							</svg>
 
 						</div>
-						<img src="./assets/img/room/econom/room1-1.jpg" alt="room1-1" >
-						<img src="./assets/img/room/econom/room1-2.jpg" alt="room1-2" >
-						<img src="./assets/img/room/econom/room1-3.jpg" alt="room1-3" >
+						<img src="./assets/img/room/econom/room1-1.jpg" alt="room1-1">
+						<img src="./assets/img/room/econom/room1-2.jpg" alt="room1-2">
+						<img src="./assets/img/room/econom/room1-3.jpg" alt="room1-3">
 						<div class="nextArrow">
 							<svg width="18px" height="17px" viewBox="-1 0 18 17" version="1.1"
 								xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -462,11 +420,11 @@
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d443.4055755237461!2d38.26719277701546!3d46.719554758835116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e42f2acfbda171%3A0xf7333edb1139de22!2z0YPQuy4g0JzQvtGA0YHQutCw0Y8sIDQzLCDQldC50YHQuiwg0JrRgNCw0YHQvdC-0LTQsNGA0YHQutC40Lkg0LrRgNCw0LksIDM1MzY4MA!5e0!3m2!1sru!2sru!4v1712003885019!5m2!1sru!2sru"
 					width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
 					referrerpolicy="no-referrer-when-downgrade"></iframe>
-			<divc class="callUs">
-				<span>Евгений  +79780556794</span>
-				<span>Евгений  +79780556794</span>
-				<span>Евгений  +79780556794</span>
-			</divc>
+				<divc class="callUs">
+					<span>Евгений +79780556794</span>
+					<span>Евгений +79780556794</span>
+					<span>Евгений +79780556794</span>
+				</divc>
 			</div>
 
 		</div>
@@ -510,15 +468,23 @@
 			document.querySelector('.headerLinks').classList.toggle('open');
 			if (document.querySelector('.headerLinks').classList.contains('open')) {
 				document.body.style.overflow = 'hidden';
-			} 
+			}
 		})
 	</script>
 	<script>
 		$('.discriptionImageAbout').slick({
-			dots:true,
+			dots: true,
 			arrows: true,
 			autoplaySpeed: 4000,
-			infinite: true
+			infinite: true,
+			centerMode: true,
+
+			centerPadding: '0', // Отступы по бокам для центрирования (можно установить значение 0)
+			slidesToShow: 1, // Количество отображаемых слайдов
+			infinite: true, // Бесконечная прокрутка
+			variableWidth: false, //
+
+			adaptiveHeight:true
 		});
 	</script>
 </body>
