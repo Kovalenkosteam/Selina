@@ -475,16 +475,23 @@
 		$('.discriptionImageAbout').slick({
 			dots: true,
 			arrows: true,
-			autoplaySpeed: 4000,
 			infinite: true,
-			centerMode: true,
-
-			centerPadding: '0', // Отступы по бокам для центрирования (можно установить значение 0)
-			slidesToShow: 1, // Количество отображаемых слайдов
-			infinite: true, // Бесконечная прокрутка
-			variableWidth: false, //
-
-			adaptiveHeight:true
+			
+			responsive: [
+				{
+					breakpoint: 900,
+					settings: {
+						arrows: false,
+					}
+					
+				}
+			]
+			// centerMode: true
+			// centerPadding: '0', // Отступы по бокам для центрирования (можно установить значение 0)
+			// slidesToShow: 1,
+			// infinite: true, 
+			// variableWidth: false, 
+			// adaptiveHeight:true
 		});
 	</script>
 </body>
