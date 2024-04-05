@@ -162,3 +162,6 @@ v.3.2.5-test2
 
 v.3.2.5-test3
 такая же хуйня
+
+v.3.2.5-test4
+получилось с background-image

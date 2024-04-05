@@ -265,6 +265,12 @@ box-sizing:border-box;
 	position: relative;
 	
 }
+.discriptionImageAbout_item{
+	height: 80vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
 /* размер картинки в слайдере */
 .discriptionImageAbout img{
 	max-width: 50%; 
