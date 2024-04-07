@@ -98,24 +98,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_mainTabs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/mainTabs */ "./src/js/modules/mainTabs.js");
 /* harmony import */ var _modules_roomTabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/roomTabs */ "./src/js/modules/roomTabs.js");
 /* harmony import */ var _modules_modalForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modalForm */ "./src/js/modules/modalForm.js");
-/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
-/* harmony import */ var _modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/sliderModalForm */ "./src/js/modules/sliderModalForm.js");
-/* harmony import */ var _modules_calendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/calendar */ "./src/js/modules/calendar.js");
+/* harmony import */ var _modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/sliderModalForm */ "./src/js/modules/sliderModalForm.js");
 
 
 
+// import sliders from "./modules/slider";
 
-
-
+// import calendar from "./modules/calendar";
 document.addEventListener('DOMContentLoaded', () => {
   Object(_modules_mainTabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.headerLinks', '.headerLink', '.mainContent', 'headerLinkActive');
   Object(_modules_roomTabs__WEBPACK_IMPORTED_MODULE_1__["default"])('.roomLinks', '.roomLink', '.roomMainContent', 'headerLinkActive');
   Object(_modules_modalForm__WEBPACK_IMPORTED_MODULE_2__["default"])();
   // sliders('.discription', '.discriptionImageAbout', '.prevArrow', '.nextArrow');
-  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.attractionTabs', '.attractionImages', '.prevArrow', '.nextArrow');
-  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
-  Object(_modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_4__["default"])('.attractionImage');
-  Object(_modules_calendar__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  // sliders('.attractionTabs', '.attractionImages', '.prevArrow', '.nextArrow');
+  // sliders('.roomMainContent', '.discriptionImage', '.prevArrow', '.nextArrow');
+  Object(_modules_sliderModalForm__WEBPACK_IMPORTED_MODULE_3__["default"])('.attractionImage');
+  // calendar();
   // const isMobile = {
   //     Android: function() {
   //         return navigator.userAgent.match(/Android/i);
@@ -142,125 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 	alert("is no mobile !");
   // }
 });
-
-/***/ }),
-
-/***/ "./src/js/modules/calendar.js":
-/*!************************************!*\
-  !*** ./src/js/modules/calendar.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _fetchData_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetchData.js */ "./src/js/modules/fetchData.js");
-
-const calendar = () => {
-  const monthsData = [{
-    name: 'Июнь',
-    days: 30
-  }, {
-    name: 'Июль',
-    days: 31
-  }, {
-    name: 'Август',
-    days: 31
-  }];
-  document.querySelectorAll('.roomMainContent').forEach(room => {
-    const firstChildClass = room.firstElementChild.className;
-    const calendarContainer = document.createElement('div');
-    calendarContainer.id = firstChildClass;
-    room.appendChild(calendarContainer);
-    const calendarDiv = document.createElement('div');
-    calendarDiv.classList.add('month-container');
-    calendarContainer.appendChild(calendarDiv);
-    monthsData.forEach(({
-      name,
-      days
-    }, index) => {
-      const table = document.createElement('table');
-      const thead = document.createElement('thead');
-      const tbody = document.createElement('tbody');
-      const headerRow = document.createElement('tr');
-      ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'].forEach(weekday => {
-        const weekdayHeader = document.createElement('th');
-        weekdayHeader.textContent = weekday;
-        headerRow.appendChild(weekdayHeader);
-      });
-      thead.appendChild(headerRow);
-      const firstDay = new Date(new Date().getFullYear(), index + 5, 1);
-      const startingDay = (firstDay.getDay() + 6) % 7;
-      let currentRow = document.createElement('tr');
-      for (let i = 0; i < startingDay; i++) {
-        currentRow.appendChild(document.createElement('td'));
-      }
-      for (let day = 1; day <= days; day++) {
-        const cell = document.createElement('td');
-        cell.textContent = day;
-        currentRow.appendChild(cell);
-        if ((day + startingDay) % 7 === 0 || day === days) {
-          tbody.appendChild(currentRow);
-          currentRow = document.createElement('tr');
-        }
-      }
-      table.appendChild(thead);
-      table.appendChild(tbody);
-      const monthDiv = document.createElement('div');
-      monthDiv.classList.add('month');
-      const monthNameHeader = document.createElement('h3');
-      monthNameHeader.textContent = name;
-      monthDiv.appendChild(monthNameHeader);
-      monthDiv.appendChild(table);
-      calendarDiv.appendChild(monthDiv);
-      Object(_fetchData_js__WEBPACK_IMPORTED_MODULE_0__["default"])(data => {
-        data.forEach(item => {
-          const {
-            roomName,
-            startDate,
-            endDate
-          } = item;
-          const startDateObj = new Date(startDate.replace(/-/g, '/'));
-          const endDateObj = new Date(endDate.replace(/-/g, '/'));
-          if (roomName === calendarContainer.id) {
-            tbody.querySelectorAll('td').forEach(cell => {
-              const day = parseInt(cell.textContent);
-              const cellDate = new Date(firstDay.getFullYear(), index + 5, day);
-              if (cellDate.getMonth() === index + 5 && cellDate >= startDateObj && cellDate <= endDateObj) {
-                cell.style.backgroundColor = 'red';
-              }
-            });
-          }
-        });
-      });
-    });
-  });
-};
-/* harmony default export */ __webpack_exports__["default"] = (calendar);
-
-/***/ }),
-
-/***/ "./src/js/modules/fetchData.js":
-/*!*************************************!*\
-  !*** ./src/js/modules/fetchData.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-const fetchData = callback => {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "/assets/server.php", true);
-  xhr.send();
-  xhr.onreadystatechange = function () {
-    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-      var data = JSON.parse(this.responseText);
-      callback(data); // Вызываем колбэк с полученными данными
-    }
-  };
-};
-/* harmony default export */ __webpack_exports__["default"] = (fetchData);
 
 /***/ }),
 
@@ -407,58 +286,6 @@ const roomTabs = (headerSelecor, tabSelector, contentSelector, activeClass, disp
   });
 };
 /* harmony default export */ __webpack_exports__["default"] = (roomTabs);
-
-/***/ }),
-
-/***/ "./src/js/modules/slider.js":
-/*!**********************************!*\
-  !*** ./src/js/modules/slider.js ***!
-  \**********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-const sliders = (imageContainer, sliderImage, prevBtn, nextBtn) => {
-  const container = document.querySelectorAll(imageContainer);
-  container.forEach(item => {
-    const slider = item.querySelector(sliderImage);
-    const prevButton = item.querySelector(prevBtn);
-    const nextButton = item.querySelector(nextBtn);
-    const slides = Array.from(slider.querySelectorAll('img'));
-    item.addEventListener('mouseenter', () => {
-      prevButton.style.display = 'block';
-      nextButton.style.display = 'block';
-    });
-    item.addEventListener('mouseleave', () => {
-      prevButton.style.display = 'none';
-      nextButton.style.display = 'none';
-    });
-    const slideCount = slides.length;
-    let slideIndex = 0;
-    function showPreviousSlide() {
-      slideIndex = (slideIndex - 1 + slideCount) % slideCount;
-      updateSlider();
-    }
-    function showNextSlide() {
-      slideIndex = (slideIndex + 1) % slideCount;
-      updateSlider();
-    }
-    prevButton.addEventListener('click', showPreviousSlide);
-    nextButton.addEventListener('click', showNextSlide);
-    function updateSlider() {
-      slides.forEach((slide, index) => {
-        if (index === slideIndex) {
-          slide.style.display = 'block';
-        } else {
-          slide.style.display = 'none';
-        }
-      });
-    }
-    updateSlider();
-  });
-};
-/* harmony default export */ __webpack_exports__["default"] = (sliders);
 
 /***/ }),
 
